@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block messages %}
+	<h2>Search Results for {{ search_str }}</h2>
+{% endblock %}
+{% block home_page %}
+	<div class="result-container">
+		{% for result in results %}
+			<!-- Product -->
+			<div class="product-container">
+				<!-- Product Image and details-->
+				<div class="product-image">
+					<a target="_blank" href="{{ result.item_url }}"><img title="Go to {{retailer}}"  class="image-thumbnail" src="{{ result.item_image }}" alt="{{ result.item_name }}"></a>
+				</div>
+				<!-- Product description with Link -->
+				<div class="product-description">
+					<p target="_blank" href="{{ result.item_url }}" title="{{result.item_name}}">{{ result.item_name.split(" (")[0]}}</p>
+					<p class="item-price">Price:- {{ result.item_price }}</p>
+					{% if current_user.is_authenticated %}
+						{% if result.watchlist_rec.filter_by(user=current_user).first() %}
+						<p id="item{{result.id}}">In watchlist</p>
+						{% else %}
+						<p id="item{{result.id}}" class="button" onclick='addToWatchlist(result_id="{{ result.id }}", current_price="{{ result.item_price }}")'>Add to Watchlist</p>
+						{% endif %}
+					{% endif %}
+					<p class="button" onclick='btnclick(header="{{ result.item_name.split(" (")[0]}}", name="{{ result.item_name }}", price="{{ result.item_price }}", link="{{ result.item_url }}")'>See more info
+					</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	<!-- Item Modal -->
+	<div id="productModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 id="itemHeader"></h4>
+				</div>
+				<div class="modal-body">
+					<h5>Item Details</h5>
+					<article>
+						<p id="itemName"></p>
+						<p id="itemPrice"></p>
+						<a target="_blank" id="itemLink">Go to Website</a>
+					</article>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Item Modal -->
+	<div id="watchModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4>Add Item to WatchList</h4>
+				</div>
+				<div class="modal-body">
+					<h5>Input desired value</h5>
+					<input id="desiredPrice" type="number" placeholder="Desired Value" name="desiredValue">
+				</div>
+				<div class="modal-footer">
+					<button onclick='setWatchList()' type="button" class="btn btn-default" data-dismiss="modal">Add to Watchlist</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block scripts %}
+	<script type="text/javascript">
+		let modalBodyName = document.querySelector('.modal-body article p#itemName')
+		let modalBodyPrice = document.querySelector('.modal-body article p#itemPrice')
+		let modalBodyLink = document.querySelector('.modal-body article a#itemLink')
+		let modalHeader = document.querySelector('.modal-header h4#itemHeader')
+		const inputDesiredValue = document.querySelector('#desiredPrice')
+		const errMsg = document.querySelector('.errorMsg');
+		const successMsg = document.querySelector('.successMsg');
+		const currentUser = "{{current_user.id}}"
+		let itemId;
+		const btnclick = (header, name, price, link) => {
+			modalBodyName.textContent = name
+			modalBodyPrice.textContent = `Price : - ${price}`
+			modalHeader.textContent = `Item :- ${header}`
+			modalBodyLink.setAttribute("href", link)
+			$('#productModal').modal('show');
+		}
+
+		const addToWatchlist = (result_id, current_price) =>{
+			const currentPrice = current_price.replace(',','')
+			itemId = result_id;			
+			inputDesiredValue.setAttribute("value", currentPrice)
+			$('#watchModal').modal('show');
+		}
+
+		const setWatchList = () => {
+			const price_to_watch = inputDesiredValue.value
+			const data = { item_id: itemId, user_id: currentUser, desired_price:price_to_watch }
+			fetch('/add_to_watchlist',{
+				method:'POST',
+				headers: {
+      				'Content-Type': 'application/json'
+      			},
+      			body: JSON.stringify(data)
+			})
+			.then(res => res.json())
+			.then(data => {
+				if(data.message){
+					successMsg.textContent = "Added item to watchlist"
+					setTimeout(function(){ successMsg.textContent = ''; }, 3000);
+				}else{
+					errMsg.textContent = "Could not add to watchlist"
+					setTimeout(function(){ errMsg.textContent = ''; }, 3000);
+				}
+			})
+			.catch(data => console.log("error"))
+
+			const watchListMsg = document.querySelector(`#item${itemId}`)
+			watchListMsg.textContent = "In watchlist"
+			watchListMsg.removeAttribute("onclick");
+			watchListMsg.classList.remove("button");
+		}
+	</script>
+{% endblock %}

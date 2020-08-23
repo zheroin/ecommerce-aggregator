@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block home_page %}
+<div class="container">
+		<section id="main">
+			<form action="" method="POST">
+				{{ form.hidden_tag() }}
+				<p>
+					{{ form.email.label }}<br>
+					{{ form.email }}<br>
+					{% for error in form.email.errors %}
+					<span style="color: red;"><small>[{{ error }}]</small></span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ form.username.label }}<br>
+					{{ form.username }}<br>
+					{% for error in form.username.errors %}
+					<span style="color: red;"><small>[{{ error }}]</small></span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ form.first.label }}<br>
+					{{ form.first }}<br>
+					{% for error in form.first.errors %}
+					<span style="color: red;"><small>[{{ error }}]</small></span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ form.last.label }}<br>
+					{{ form.last }}<br>
+					{% for error in form.last.errors %}
+					<span style="color: red;"><small>[{{ error }}]</small></span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ form.submit }}<br>
+				</p>
+				
+			</form>
+		</section>
+		<aside id="sidebar">
+			{% if item_list %}
+				<p>Watchlist</p>
+				<small>{% for items in item_list %}
+					{{items.item_name}}<br>
+					Current Price {{ items.item_price }}
+					<a href = {{items.item_url}}><span style = "color:red;">Go to URL</span></a><br>
+				{% endfor %}
+			</small>
+			{% else %}
+					<p> Watchlist Items are here</p>
+			{% endif %}
+		</aside>
+	</div>
+{% endblock %}	

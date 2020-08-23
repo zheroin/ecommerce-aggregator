@@ -1,0 +1,157 @@
+html, body {
+	height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+body {
+	background-color: #fff;
+	color:#212529;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+	font-size:16px;
+	line-height: 1.6em;
+	background: linear-gradient(to right, rgb(240, 229, 229), rgb(230, 168, 219));
+}
+
+nav.mainNav{
+	display: flex;
+	justify-content: flex-end;
+}
+
+nav a.navLogoText{
+	margin-right: auto;
+}
+
+nav .navText{
+	text-transform: uppercase;
+	font-size: 1.1em;
+	font-weight: 600px;
+	color:white;
+}
+
+nav a.navText.navLogoText.navbar-brand:hover{
+	color:red;
+}
+
+.navText:hover{
+	color:red;
+}
+
+p.button:hover { cursor: pointer;
+	text-decoration: underline;
+	color: blue;
+}
+
+.signinup-container {
+	text-align: center;
+}
+
+.signinup {
+	display: inline-block;
+	background: #ffffff;
+	padding: 10px 20px;
+	border: 1px solid #dddddd;
+	border-radius: 3px;
+	margin-bottom: 20px;
+}
+
+/* Used to display the error messages right below the nav bar */
+.errorMsg {
+	color:white;
+	background-color: red;
+}
+
+/* Used to display the success messages right below the nav bar */
+.successMsg {
+	color:white;
+	background-color: green;
+}
+
+#showcase {
+	min-height: 300px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+#showcase h1 {
+	color:#333;
+	font-size:50px;
+	line-height: 1.6em;
+	padding-top:30px;
+
+}
+
+/* Item search box */
+.search-box {
+	padding:5px;
+}
+
+#main {
+	float: left;
+	width:70%;
+	padding:0 30px;
+	box-sizing: border-box;
+}
+
+#sidebar {
+	float: right;
+	width:30%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+#main-footer {
+	background-color: #333;
+	color:#fff;
+	text-align: center;
+	font-size:12px;
+	display: table-row;
+    height: 0;
+}
+
+.result-container{
+	display: grid;
+	/*grid-template-columns: 1fr 1fr;*/
+	grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+	grid-gap: .5rem;
+	margin:auto;
+	max-width: 90%;
+}
+
+.product-container{
+	display: inline-grid;
+	grid-template-columns: 1fr 1fr;
+	/*grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));*/
+	border: 1px solid #dee2e6;
+	background-color: white;
+}
+
+div.product-description, div.product-image{
+	display: inline;
+	padding:10px;
+}
+
+.product-image{
+	height:218px;
+	width: auto;
+}
+
+img.image-thumbnail {
+	display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+
+/*
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.product:hover{
+	transform: scale(1.05); 
+	transition-delay: .4s ease;
+	cursor: pointer;
+}*/
