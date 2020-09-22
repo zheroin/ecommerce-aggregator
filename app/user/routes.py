@@ -6,8 +6,6 @@ from app.user.utils import send_reset_email
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 from flask_mail import Message
-# from app.main.routes import home
-
 
 user = Blueprint('user',__name__)
 
@@ -20,6 +18,7 @@ def login():
 		user = User.query.filter_by(email = form.email.data).first()
 		if user and bcrypt.check_password_hash(user.password, form.password.data):
 			login_user(user, remember = form.remember.data)
+			session['user_id'] = user.id
 			next_page = request.args.get('next')
 			if not next_page or url_parse(next_page).netloc != '':
 				return redirect(url_for('main.home'))
@@ -107,5 +106,3 @@ def reset_token(token):
 		flash('your password has been updated.')
 		return redirect(url_for('user.login'))
 	return render_template('reset-token.html', form = form)
-
-	# if form.validate_on_submit():

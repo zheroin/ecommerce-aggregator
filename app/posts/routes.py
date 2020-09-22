@@ -1,48 +1,38 @@
-from flask import render_template, Blueprint, flash, redirect,url_for, session, request, jsonify
-from app.generate_data.amazon import get_item_list
+from flask import render_template, Blueprint, flash, session, request, current_app
 from app import db
-from app.models import Results, Items, Watchlist
-from app.posts.forms import WatchListForm
+from app.models import Items, Watchlist
 from app.posts.utils import get_search_results
-from datetime import datetime
-from flask_login import login_required, current_user
-import json
+import random
 
 post = Blueprint('post',__name__)
 
 @post.route('/search/<string:search_string>')
-def search(search_string,retailer='amazon'):
-	"""
-		Improvements needed :- # Code to deal with HTTP connection for Web Scraping
-			# Refactor code- DRY
-	"""
+def search(search_string):
 	"""
 		Checks if the search string is present in database. Displays the results off the database if presents, else scrapes the data off the website and adds to database.
 	"""
 	search_string = search_string.lower().strip()
-	search_id = get_search_results(search_string, retailer)
+	search_id = get_search_results(search_string)
+	current_app.logger.info(f"Search id {search_id}")
 	page = request.args.get('page', 1, type=int)
 	# all_results = Items.query.filter_by(search_id = search_id).paginate(page=page, per_page=8)
 
 	# Finds all the Items in the search result
 	search_query = Items.query.filter_by(search_id = search_id)
 	all_results = search_query.all()
-	# Code to deal with HTTP connection for Web Scraping			
-		# if status_code!= 'success':
-		# 	pass
-		# 	#Don't add data to database
-		# else:
-		# 	pass
-		# 	# Add data to database
-		# retailer, res_list = None, None
-	return render_template('search.html',results = all_results,search_str=search_string, search_id = search_id, retailer = retailer)
+	random.shuffle(all_results)
+	return render_template('search.html',results = all_results,search_str=search_string, search_id = search_id, retailer = "amazon")
 
 @post.route('/add_to_watchlist',methods=['POST'])
 def watch():
 	item_id, user_id, desired_price = [request.json[k] for k in ('item_id', 'user_id' , 'desired_price')]
-	item = Items.query.filter(Items.id == item_id).first()
-	wc = Watchlist.query.filter_by(item_id = item.id, user_id = user_id).first()
+	print(f"User ID {user_id}")
+	print(f"Session User ID {session['user_id']}")
 	try:
+		if int(user_id) != int(session['user_id']):
+			raise AttributeError("User ID does not match")
+		item = Items.query.filter(Items.id == item_id).first()
+		wc = Watchlist.query.filter_by(item_id = item.id, user_id = user_id).first()	
 		if wc:
 			wc.desired_price = desired_price
 		else:
@@ -50,7 +40,8 @@ def watch():
 			db.session.add(watch_item)
 		db.session.commit()
 		return {"message": "successfully added"}, 201
-	except:
+	except Exception as e:
+		current_app.logger.info("Exception - {}".format(e))
 		return {"error": "Errored out"}, 400
 
 

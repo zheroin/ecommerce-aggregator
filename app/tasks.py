@@ -1,8 +1,9 @@
-import time
+from flask import current_app as app
 
-def example(seconds):
-    print('Starting task')
-    for i in range(seconds):
-        print(i)
-        time.sleep(1)
-    print('Task completed')
+def clear_database(app):
+	# print("Starting task.....")
+	with app.app_context():
+		app.logger.info("Starting task.........")
+	# app = apscheduler.app
+	# with app.app_context():
+	# 	app.logger.info('Starting task')

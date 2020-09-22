@@ -2,45 +2,9 @@
 {% block home_page %}
 <div class="container">
 		<section id="main">
-			<form action="" method="POST">
-				{{ form.hidden_tag() }}
-				<p>
-					{{ form.email.label }}<br>
-					{{ form.email }}<br>
-					{% for error in form.email.errors %}
-					<span style="color: red;"><small>[{{ error }}]</small></span>
-					{% endfor %}
-				</p>
-				<p>
-					{{ form.username.label }}<br>
-					{{ form.username }}<br>
-					{% for error in form.username.errors %}
-					<span style="color: red;"><small>[{{ error }}]</small></span>
-					{% endfor %}
-				</p>
-				<p>
-					{{ form.first.label }}<br>
-					{{ form.first }}<br>
-					{% for error in form.first.errors %}
-					<span style="color: red;"><small>[{{ error }}]</small></span>
-					{% endfor %}
-				</p>
-				<p>
-					{{ form.last.label }}<br>
-					{{ form.last }}<br>
-					{% for error in form.last.errors %}
-					<span style="color: red;"><small>[{{ error }}]</small></span>
-					{% endfor %}
-				</p>
-				<p>
-					{{ form.submit }}<br>
-				</p>
-				
-			</form>
-		</section>
-		<aside id="sidebar">
 			{% if item_list %}
-				<p>Watchlist</p>
+				<h3>Watchlist</h3>
+				<hr>
 				<small>{% for items in item_list %}
 					{{items.item_name}}<br>
 					Current Price {{ items.item_price }}
@@ -48,8 +12,28 @@
 				{% endfor %}
 			</small>
 			{% else %}
-					<p> Watchlist Items are here</p>
+					<h4>No items selected...</h4>
 			{% endif %}
+		</section>
+		<aside id="sidebar">
+			<div class="account">
+				<h3>About</h3>
+				<hr>
+				<form class="accountForm" action="" method="POST">
+					{{ form.hidden_tag() }}
+					{% for field in form if field.widget.input_type != 'hidden'%}
+						{% if field.name != 'submit' %}
+							{{ field.label(class_="col-form-label")}}
+								{{ field(class_="accountField form-control", disabled=True) }}
+								{% for error in field.errors %}
+								<span style="color: red;"><small>[{{ error }}]</small></span>
+								{% endfor %}
+						{% else %}
+							{{ field(class_="accountFieldUpdate") }}
+						{% endif %}
+					{% endfor %}	
+				</form>
+			</div>
 		</aside>
 	</div>
 {% endblock %}	

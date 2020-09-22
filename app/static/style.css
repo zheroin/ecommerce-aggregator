@@ -11,7 +11,7 @@ body {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 	font-size:16px;
 	line-height: 1.6em;
-	background: linear-gradient(to right, rgb(240, 229, 229), rgb(230, 168, 219));
+	background: linear-gradient(to right, rgb(251, 249, 249), rgb(219, 219, 219));
 }
 
 nav.mainNav{
@@ -89,15 +89,15 @@ p.button:hover { cursor: pointer;
 
 #main {
 	float: left;
-	width:70%;
+	width:60%;
 	padding:0 30px;
 	box-sizing: border-box;
 }
 
 #sidebar {
 	float: right;
-	width:30%;
-	padding: 10px;
+	width:40%;
+	padding: 0 30px;
 	box-sizing: border-box;
 }
 
@@ -155,3 +155,15 @@ img:hover {
 	transition-delay: .4s ease;
 	cursor: pointer;
 }*/
+
+.account{
+
+}
+
+.accountForm{
+
+}
+
+.accountFieldUpdate{
+	display:none;
+}
