@@ -1,5 +1,5 @@
 from app.models import Results, Items
-from app.data import gen_data
+from app.data import main
 from app import db
 import json
 
@@ -16,6 +16,6 @@ def get_search_results(search_string):
 	else:
 		result = Results(search_string=search_string)
 		db.session.add(result)
-		db.session.commit()
-		gen_data(search_id=result.id, search_str=search_string)
+		# db.session.commit()
+		main(search_string=search_string)
 	return result.id

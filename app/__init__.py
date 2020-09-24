@@ -23,9 +23,9 @@ def create_app(config_class = Config):
 	with app.app_context():
 		db.create_all()
 	# from app.models import User, Retailer, Results, Watchlist
-	scheduler.init_app(app)
-	scheduler.start()
-	app.apscheduler.add_job(func=clear_database, trigger='interval', args=(app,), seconds=2, id='clear_database')
+	# scheduler.init_app(app)
+	# scheduler.start()
+	# app.apscheduler.add_job(func=clear_database, trigger='interval', args=(app,), seconds=2, id='clear_database')
 	bcrypt.init_app(app)
 	login.init_app(app)
 	mail.init_app(app)
