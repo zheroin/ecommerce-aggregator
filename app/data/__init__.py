@@ -66,15 +66,16 @@ def main(search_id, search_string, category_name):
   try:
     if category_name == 'laptops':
         # print("Category is ")
-        all_eventuals.append(scrape_amazon_with_crochet(search_string, category_name))
+        # all_eventuals.append(scrape_amazon_with_crochet(search_string, category_name))
+        amazon_res = scrape_amazon_with_crochet(search_string, category_name)
         # scrape_amazon_with_crochet(search_string, category_name)
         # time.sleep(20)
-    # amazon_res.wait(timeout=15)
+    amazon_res.wait(timeout=15)
     # all_eventuals.append(scrape_flipkart_with_crochet("Laptops"))
-    for eventual in all_eventuals:
+    # for eventual in all_eventuals:
     #     print(eventual)
     #     print(type(eventual))
-        eventual.wait(timeout=15)
+        # eventual.wait(timeout=15)
     print(output_data)
     for i in output_data:
         print(i['item_name'])
