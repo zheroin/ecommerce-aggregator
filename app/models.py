@@ -32,7 +32,6 @@ class User(Base,UserMixin):
 			'first' : self.first,
 			'last' : self.last
 		}
-
 		return data
 
 	def get_user_token(self, expiry_seconds = 1800):
@@ -54,21 +53,21 @@ class User(Base,UserMixin):
 class Retailer(Base):
 	name = db.Column(db.String, unique=True, nullable=False)
 	home_url = db.Column(db.String, unique=True, nullable=False)
-	search_url = db.Column(db.String, unique=True, nullable=False)
-	sorting_details = db.Column(db.Text) # Contains a JSON string of ==> Python Dict of sorting options for each Retailer
-
-	items = db.relationship('Items', backref='retailer', lazy = 'dynamic')
-
-	# Sorting Columns : 
-	# price_high_to_low = db.Column(db.String(30))
-	# price_low_to_high = db.Column(db.String(30))
-	# cust_reviews = db.Column(db.String(30))
-	# newest_arrivals = db.Column(db.String(30))
-	# featured = db.Column(db.String(30))
-	# Sorting columns end
 
 	def __repr__(self):
 		return f"Retailer <{self.name}>"
+
+class Categories(Base):
+	name = db.Column(db.String, unique=True, nullable=False)
+
+	def __repr__(self):
+		return f"Category name {self.name}"
+
+shop_category = db.Table('shop_category',
+db.Column('category_id', db.Integer, db.ForeignKey('categories.id'), primary_key=True),
+db.Column('retailer_id', db.Integer, db.ForeignKey('retailer.id'), primary_key=True),
+db.Column('cat_url_key', db.String, nullable=False)
+)
 
 class Results(Base):
 	search_string = db.Column(db.String, nullable=False)
@@ -84,18 +83,35 @@ class Items(Base):
 	item_url = db.Column(db.String, nullable= False)
 	item_price = db.Column(db.Integer, nullable= False)
 	item_image = db.Column(db.String)
-	watchlist_rec = db.relationship('Watchlist', backref = 'item', lazy= 'dynamic')
 
 	def __repr__(self):
 		return f'Item {self.item_name} - url - {self.item_url}'
 
-class Watchlist(Base):
-	item_id = db.Column(db.Integer, db.ForeignKey('items.id'), nullable= False)
-	user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable= False)
-	desired_price = db.Column(db.Integer, nullable = False)
+watchlist_items = db.Table('watchlist_items',
+db.Column('item_id',db.Integer, db.ForeignKey('tracked_items.id'), primary_key=True),
+db.Column('watchlist_id', db.Integer, db.ForeignKey('watchlist.id'), primary_key=True)
+)
+
+class TrackedItems(Base):
+	item_url = db.Column(db.String, nullable= False)
+	current_price = db.Column(db.Integer, nullable= False)
+	last_scraped_date = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
 	def __repr__(self):
-		return f'Item ID - {self.item_id}, User ID {self.user_id}'
+		return f"URL {self.item_url} - Current Price {self.current_price} - Last extracted data {self.last_scraped_date}"
+
+
+class Watchlist(Base):
+	user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable= False)
+	desired_price = db.Column(db.Integer, nullable = False)
+	notification_sent = db.Column(db.Boolean, default= False)
+	notification_date = db.Column(db.DateTime)
+
+	items = db.relationship('TrackedItems', secondary=watchlist_items, lazy='subquery', backref = db.backref('watchlists', lazy=True))
+
+	def __repr__(self):
+		return f'Item ID - {self.item_id}, User ID {self.user}'
+
 
 
 
