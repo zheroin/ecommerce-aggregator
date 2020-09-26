@@ -5,7 +5,7 @@ from app import db
 with app.app_context():
     ## Add shops to the database
     # Adding Amazon
-    ret = Retailer.query.filter(Retailer.name == 'amazon').first()
-    print(ret.id)
-    ## Add categories:
-    ### Laptops - Amazon -
+    print(Results.query.all())
+    res = Results.query.filter_by(id=1).first()
+    print(len(res.items))
+    print([item.item_name for item in res.items])

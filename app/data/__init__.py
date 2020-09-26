@@ -11,7 +11,8 @@ from scrapy.utils.project import get_project_settings
 from .amazonscraper import AmazonscraperSpider
 
 
-output_data = []
+output_data=[]
+
 settings = {
     'FEED_EXPORT_ENCODING' :'utf-8',
     'USER_AGENT' :'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36',
@@ -33,8 +34,6 @@ s.update({
 # configure_logging(s)
 
 crawl_runner = CrawlerRunner(s)
-
-even_set = set()
 
 @crochet.run_in_reactor
 def scrape_amazon_with_crochet(search_string, category_name, retailer_id=1):
@@ -71,12 +70,20 @@ def main(result, category_name):
         item_name = i['item_name']
         item = Items.query.filter(Items.item_name == item_name).first()
         if item:
+            print("Item exists adding the result")
             item.results.append(result)
         else:
             item = Items(**i)
             db.session.add(item)
+            db.session.commit()
+            print("item created. Adding to result")
             item.results.append(result)
   except crochet.TimeoutError:
     pass
-  db.session.commit()
+  else:
+    db.session.commit()
+  finally:
+    # Clear the output data list, to avoid mix ins with other results.
+    output_data.clear()
+
 

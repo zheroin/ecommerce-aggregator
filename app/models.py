@@ -84,7 +84,7 @@ class Results(Base):
 	items = db.relationship('Items', secondary=item_results, lazy='subquery', backref=db.backref('results', lazy=True))
 
 	def __repr__(self):
-		return f'Results for {self.search_string} and retailer {self.retailer_name}'
+		return f'ID - {self.id} - Search - {self.search_string}'
 
 class Items(Base):
 	retailer_id = db.Column(db.Integer, db.ForeignKey('retailer.id'))

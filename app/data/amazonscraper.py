@@ -49,6 +49,7 @@ class AmazonscraperSpider(scrapy.Spider):
 
     def parse(self, response):
         print("Getting amazon data...")
+        print("Response URL is {}".format(response.url))
         all_results = response.xpath('//div[@data-component-type="s-search-result"]')
         logging.info("All results found. Looping through the results .... " if all_results else "No results found. Exiting")
         for res in all_results:

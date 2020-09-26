@@ -6,3 +6,6 @@ class MyItem(scrapy.Item):
     item_price = scrapy.Field()
     item_image = scrapy.Field()
     item_url = scrapy.Field()
+
+    def __repr__(self):
+        return f"Name - {self.item_name}"
