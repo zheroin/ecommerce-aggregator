@@ -18,10 +18,8 @@ class AmazonscraperSpider(scrapy.Spider):
     #     level=logging.INFO
     # )
     name = 'amazonscraper'
-    AMAZON_HOME = 'https://www.amazon.in/'
     AMAZON_SEARCH = 'https://www.amazon.in/s?'
     amazon_params = {'s':'relevance-blender', 'ref':'nb_sb_noss'}
-    # start_urls = []
 
     def __init__(self, retailer_id=1, search_string=None, category_name=None, *args, **kwargs):
         super(AmazonscraperSpider, self).__init__(*args, **kwargs)
@@ -51,7 +49,6 @@ class AmazonscraperSpider(scrapy.Spider):
 
     def parse(self, response):
         print("Getting amazon data...")
-        print(f"Headers {response.request.headers}")
         all_results = response.xpath('//div[@data-component-type="s-search-result"]')
         logging.info("All results found. Looping through the results .... " if all_results else "No results found. Exiting")
         for res in all_results:

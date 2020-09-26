@@ -10,12 +10,12 @@ def get_search_results(search_string, category_name="laptops"):
 	"""
 	result = Results.query.filter_by(search_string=search_string).order_by(Results.creation_date.desc()).first()
 	update_flag = None
-	if result and (Items.query.filter_by(search_id = result.id).count() > 0):
+	if result and len(result.items):
 		# Verifying if the Items from the result list are present in the DB
-		return result.id
+		return result
 	else:
 		result = Results(search_string=search_string)
 		db.session.add(result)
 		db.session.commit()
-		main(search_id=result.id, search_string=search_string, category_name=category_name)
-	return result.id
+		main(result=result, category_name=category_name)
+	return result

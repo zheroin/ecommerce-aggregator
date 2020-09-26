@@ -7,10 +7,10 @@ with app.app_context():
 
     ## Add shops to the database
     # Adding Amazon
-    amazon = Retailer(name="amazon", home_url='https://www.amazon.in/')
-    db.session.add(amazon)
-    flipkart = Retailer(name="flipkart", home_url='https://www.flipkart.com/')
-    db.session.add(flipkart)
-    db.session.commit()
+    # amazon = Retailer(name="amazon", home_url='https://www.amazon.in/')
+    # db.session.add(amazon)
+    # flipkart = Retailer(name="flipkart", home_url='https://www.flipkart.com/')
+    # db.session.add(flipkart)
+    # db.session.commit()
     ## Add categories:
     ### Laptops - Amazon -

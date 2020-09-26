@@ -12,16 +12,11 @@ def search(category_name,search_string):
 		Checks if the search string is present in database. Displays the results off the database if presents, else scrapes the data off the website and adds to database.
 	"""
 	search_string = search_string.lower().strip()
-	search_id = get_search_results(search_string)
-	current_app.logger.info(f"Search id {search_id}")
-	page = request.args.get('page', 1, type=int)
-	# all_results = Items.query.filter_by(search_id = search_id).paginate(page=page, per_page=8)
-
-	# Finds all the Items in the search result
-	search_query = Items.query.filter_by(search_id = search_id)
-	all_results = search_query.all()
+	result = get_search_results(search_string)
+	current_app.logger.info(f"Search id {result.id}")
+	all_results = result.items
 	random.shuffle(all_results)
-	return render_template('search.html',results = all_results,search_str=search_string, search_id = search_id, retailer = "amazon")
+	return render_template('search.html',results = all_results,search_str=search_string, search_id = result.id)
 
 @post.route('/add_to_watchlist',methods=['POST'])
 def watch():

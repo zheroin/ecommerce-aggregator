@@ -71,27 +71,35 @@ db.Column('retailer_id', db.Integer, db.ForeignKey('retailer.id'), primary_key=T
 db.Column('cat_url_key', db.String, nullable=False)
 )
 
+
+item_results = db.Table('item_results',
+db.Column('item_id', db.Integer, db.ForeignKey('items.id'), primary_key=True),
+db.Column('result_id', db.Integer, db.ForeignKey('results.id'), primary_key=True)
+)
+
 class Results(Base):
 	search_string = db.Column(db.String, nullable=False)
-	all_items = db.relationship('Items', backref = 'results', lazy = 'dynamic')
+	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+	items = db.relationship('Items', secondary=item_results, lazy='subquery', backref=db.backref('results', lazy=True))
 
 	def __repr__(self):
 		return f'Results for {self.search_string} and retailer {self.retailer_name}'
 
 class Items(Base):
-	search_id = db.Column(db.Integer, db.ForeignKey('results.id'))
 	retailer_id = db.Column(db.Integer, db.ForeignKey('retailer.id'))
 	item_name = db.Column(db.String, nullable = False)
-	item_url = db.Column(db.String, nullable= False)
+	item_url = db.Column(db.String, unique=True, nullable= False)
 	item_price = db.Column(db.Integer, nullable= False)
 	item_image = db.Column(db.String)
 
-	@classmethod
-	def create_item(cls, search_id, retailer_id, item_name, item_url, item_price, item_image):
-		return cls(search_id=search_id, retailer_id=retailer_id, item_name=item_name, item_url=item_url, item_price=item_price, item_image=item_image)
-
 	def __repr__(self):
 		return f'Item {self.item_name} - url - {self.item_url}'
+
+watchlist_items = db.Table('watchlist_items',
+db.Column('item_id',db.Integer, db.ForeignKey('tracked_items.id'), primary_key=True),
+db.Column('watchlist_id', db.Integer, db.ForeignKey('watchlist.id'), primary_key=True)
+)
 
 class TrackedItems(Base):
 	item_url = db.Column(db.String, nullable= False)
@@ -112,9 +120,5 @@ class Watchlist(Base):
 	def __repr__(self):
 		return f'Item ID - {self.item_id}, User ID {self.user}'
 
-watchlist_items = db.Table('watchlist_items',
-db.Column('item_id',db.Integer, db.ForeignKey('tracked_items.id'), primary_key=True),
-db.Column('watchlist_id', db.Integer, db.ForeignKey('watchlist.id'), primary_key=True)
-)
 
 

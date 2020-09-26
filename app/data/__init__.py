@@ -57,8 +57,9 @@ def scrape_flipkart_with_crochet(search_string, category_name, retailer_id=2):
 def _crawler_result(item, response, spider):
     output_data.append(dict(item))
 
-def main(search_id, search_string, category_name):
-  from app.models import Items
+def main(result, category_name):
+  from app.models import Items, Results
+  search_string = result.search_string
   all_eventuals = []
   try:
     if category_name == 'laptops':
@@ -67,8 +68,14 @@ def main(search_id, search_string, category_name):
     for eventual in all_eventuals:
         eventual.wait(timeout=15)
     for i in output_data:
-        item = Items.create_item(search_id=search_id, **i)
-        db.session.add(item)
+        item_name = i['item_name']
+        item = Items.query.filter(Items.item_name == item_name).first()
+        if item:
+            item.results.append(result)
+        else:
+            item = Items(**i)
+            db.session.add(item)
+            item.results.append(result)
   except crochet.TimeoutError:
     pass
   db.session.commit()
