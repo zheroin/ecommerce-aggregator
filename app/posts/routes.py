@@ -6,8 +6,8 @@ import random
 
 post = Blueprint('post',__name__)
 
-@post.route('/search/<string:search_string>')
-def search(search_string):
+@post.route('/search/<string:category_name>/<string:search_string>')
+def search(category_name,search_string):
 	"""
 		Checks if the search string is present in database. Displays the results off the database if presents, else scrapes the data off the website and adds to database.
 	"""
@@ -32,7 +32,7 @@ def watch():
 		if int(user_id) != int(session['user_id']):
 			raise AttributeError("User ID does not match")
 		item = Items.query.filter(Items.id == item_id).first()
-		wc = Watchlist.query.filter_by(item_id = item.id, user_id = user_id).first()	
+		wc = Watchlist.query.filter_by(item_id = item.id, user_id = user_id).first()
 		if wc:
 			wc.desired_price = desired_price
 		else:
@@ -43,6 +43,3 @@ def watch():
 	except Exception as e:
 		current_app.logger.info("Exception - {}".format(e))
 		return {"error": "Errored out"}, 400
-
-
-	

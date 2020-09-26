@@ -93,11 +93,6 @@ class Items(Base):
 	def __repr__(self):
 		return f'Item {self.item_name} - url - {self.item_url}'
 
-watchlist_items = db.Table('watchlist_items',
-db.Column('item_id',db.Integer, db.ForeignKey('tracked_items.id'), primary_key=True),
-db.Column('watchlist_id', db.Integer, db.ForeignKey('watchlist.id'), primary_key=True)
-)
-
 class TrackedItems(Base):
 	item_url = db.Column(db.String, nullable= False)
 	current_price = db.Column(db.Integer, nullable= False)
@@ -105,7 +100,6 @@ class TrackedItems(Base):
 
 	def __repr__(self):
 		return f"URL {self.item_url} - Current Price {self.current_price} - Last extracted data {self.last_scraped_date}"
-
 
 class Watchlist(Base):
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable= False)
@@ -118,7 +112,9 @@ class Watchlist(Base):
 	def __repr__(self):
 		return f'Item ID - {self.item_id}, User ID {self.user}'
 
-
-
+watchlist_items = db.Table('watchlist_items',
+db.Column('item_id',db.Integer, db.ForeignKey('tracked_items.id'), primary_key=True),
+db.Column('watchlist_id', db.Integer, db.ForeignKey('watchlist.id'), primary_key=True)
+)
 
 
