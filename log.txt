@@ -1,0 +1,748 @@
+INFO:  * Restarting with stat
+WARNING:  * Debugger is active!
+INFO:  * Debugger PIN: 178-542-061
+INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO: 127.0.0.1 - - [26/Sep/2020 14:13:16] "[37mGET /home HTTP/1.1[0m" 200 -
+INFO: 127.0.0.1 - - [26/Sep/2020 14:13:16] "[37mGET /static/style.css HTTP/1.1[0m" 200 -
+INFO: 127.0.0.1 - - [26/Sep/2020 14:13:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO: 127.0.0.1 - - [26/Sep/2020 14:13:20] "[32mPOST /home HTTP/1.1[0m" 302 -
+INFO: Overridden settings:
+{'COOKIES_ENABLED': False,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_STDOUT': True,
+ 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+               '(KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36'}
+INFO: Telnet Password: 3dc21821413acc49
+INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+INFO: Enabled item pipelines:
+[]
+INFO: Spider opened
+INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+INFO: Telnet console listening on 127.0.0.1:6023
+DEBUG: Crawled (200) <GET https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops> (referer: None)
+INFO: All results found. Looping through the results .... 
+INFO: Item name scraped ... Acer Nitro 5 AN515-54 15.6-inch Gaming Laptop (9th Gen Intel Core i5-9300H processor/8GB/1TB+256GB SSD/Windows 10 Home 64-bit/NVIDIA GeForce GTX 1650 with 4 GB), Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71QXJg8uOCL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-AN515-54-15-6-inch-i5-9300H-processor/dp/B0894NY25W/ref=sr_1_1?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-1
+INFO: Item price scraped ... 64,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71QXJg8uOCL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 AN515-54 15.6-inch Gaming Laptop (9th Gen Intel '
+              'Core i5-9300H processor/8GB/1TB+256GB SSD/Windows 10 Home '
+              '64-bit/NVIDIA GeForce GTX 1650 with 4 GB), Black',
+ 'item_price': '64,990',
+ 'item_url': 'https://www.amazon.in/Acer-AN515-54-15-6-inch-i5-9300H-processor/dp/B0894NY25W/ref=sr_1_1?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-1',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 3 Intel i5-10th Gen 15.6 - inch 1920 x 1080 Thin and Light Laptop (8GB Ram/1TB HDD/Window 10/Intel UHD Graphics/Black/1.9 kgs), A315-56
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/810mRHoIxML._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Aspire-Intel-i5-10th-15-6/dp/B088CFBMRP/ref=sr_1_2?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-2
+INFO: Item price scraped ... 45,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/810mRHoIxML._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 3 Intel i5-10th Gen 15.6 - inch 1920 x 1080 Thin '
+              'and Light Laptop (8GB Ram/1TB HDD/Window 10/Intel UHD '
+              'Graphics/Black/1.9 kgs), A315-56',
+ 'item_price': '45,990',
+ 'item_url': 'https://www.amazon.in/Acer-Aspire-Intel-i5-10th-15-6/dp/B088CFBMRP/ref=sr_1_2?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-2',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 3 A315-23 15.6-inch Laptop (AMD Ryzen 5-3500U/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Vega 8 Mobile Graphics), Silver
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/610oaBCr+XL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-A315-23-15-6-inch-5-3500U-Graphics/dp/B088CDKJ7V/ref=sr_1_3?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-3
+INFO: Item price scraped ... 41,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/610oaBCr+XL._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 3 A315-23 15.6-inch Laptop (AMD Ryzen '
+              '5-3500U/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Vega 8 '
+              'Mobile Graphics), Silver',
+ 'item_price': '41,990',
+ 'item_url': 'https://www.amazon.in/Acer-A315-23-15-6-inch-5-3500U-Graphics/dp/B088CDKJ7V/ref=sr_1_3?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-3',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Acer One Intel Pentium Gold 4415U Processor 14-inch Display 1366 x 768 Laptop (4 GB Ram/1TB HDD/Windows 10 Home/Integrated Graphics/Black/1.8kgs), Z2-485
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/61S1y24GgmL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Processor-Integrated-Graphics-Z2-485/dp/B08CY9SL14/ref=sr_1_4?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-4
+INFO: Item price scraped ... 28,749
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/61S1y24GgmL._AC_UY218_.jpg',
+ 'item_name': 'Acer Acer One Intel Pentium Gold 4415U Processor 14-inch '
+              'Display 1366 x 768 Laptop (4 GB Ram/1TB HDD/Windows 10 '
+              'Home/Integrated Graphics/Black/1.8kgs), Z2-485',
+ 'item_price': '28,749',
+ 'item_url': 'https://www.amazon.in/Acer-Processor-Integrated-Graphics-Z2-485/dp/B08CY9SL14/ref=sr_1_4?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-4',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 5 Intel i5-9th Gen 15.6-inch Display 1920 x 1080 Thin and Light Gaming Laptop (8GB Ram/1TB HDD/Windows 10 Home/GTX 1650 Graphics/Obsidian Black/2.3 Kgs), AN515-54
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/81IXuyeJhYL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN515-54/dp/B088FLW4TW/ref=sr_1_5?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-5
+INFO: Item price scraped ... 59,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/81IXuyeJhYL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 Intel i5-9th Gen 15.6-inch Display 1920 x 1080 '
+              'Thin and Light Gaming Laptop (8GB Ram/1TB HDD/Windows 10 '
+              'Home/GTX 1650 Graphics/Obsidian Black/2.3 Kgs), AN515-54',
+ 'item_price': '59,990',
+ 'item_url': 'https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN515-54/dp/B088FLW4TW/ref=sr_1_5?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-5',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Swift 3 SF314-42 14-inch Laptop (AMD Ryzen 5 4500U Hexa-core processor/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Graphics), Silver
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71uiWfC6O7L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-SF314-42-Hexa-core-processor-Graphics/dp/B0894NHJH4/ref=sr_1_6?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-6
+INFO: Item price scraped ... 61,590
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71uiWfC6O7L._AC_UY218_.jpg',
+ 'item_name': 'Acer Swift 3 SF314-42 14-inch Laptop (AMD Ryzen 5 4500U '
+              'Hexa-core processor/8GB/512GB SSD/Window 10, Home, 64Bit/AMD '
+              'Radeon Graphics), Silver',
+ 'item_price': '61,590',
+ 'item_url': 'https://www.amazon.in/Acer-SF314-42-Hexa-core-processor-Graphics/dp/B0894NHJH4/ref=sr_1_6?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-6',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 7 9th Gen Core i5 15.6-inch Full HD IPS Thin and Light Gaming Laptop (8GB/1TB SSD/Windows 10/6GB Graphics/Obsidian Black/2.5kg), AN715-51
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71IBJRa3EBL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN715-51/dp/B08159BP1K/ref=sr_1_7?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-7
+INFO: Item price scraped ... 82,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71IBJRa3EBL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 7 9th Gen Core i5 15.6-inch Full HD IPS Thin and '
+              'Light Gaming Laptop (8GB/1TB SSD/Windows 10/6GB '
+              'Graphics/Obsidian Black/2.5kg), AN715-51',
+ 'item_price': '82,990',
+ 'item_url': 'https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN715-51/dp/B08159BP1K/ref=sr_1_7?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-7',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 3 AMD Athlon 3050U 15.6 - inch (1366 x 768) Thin and Light Laptop (8GB Ram/1TB HDD/Window 10 Home 64 bit/Charcoal Black),3 Year Warranty /Backpack
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71kTx-8KxjL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Aspire-Athlon-3050U-15-6/dp/B08HRV2NQH/ref=sr_1_8?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-8
+INFO: Item price scraped ... 34,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71kTx-8KxjL._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 3 AMD Athlon 3050U 15.6 - inch (1366 x 768) Thin '
+              'and Light Laptop (8GB Ram/1TB HDD/Window 10 Home 64 '
+              'bit/Charcoal Black),3 Year Warranty /Backpack',
+ 'item_price': '34,990',
+ 'item_url': 'https://www.amazon.in/Acer-Aspire-Athlon-3050U-15-6/dp/B08HRV2NQH/ref=sr_1_8?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-8',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Swift 3 10 Gen Core i5 14-inch Ultra Thin and Light (8GB/512GB SSD/Windows 10/2GB Graphics/Steel Grey/1.19 kg), SF314-57G
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/81RAueA5gyL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-SF314-57G-i5-1035G1-processor-Thunderbolt/dp/B07Z88C1ZR/ref=sr_1_9?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-9
+INFO: Item price scraped ... None
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/81RAueA5gyL._AC_UY218_.jpg',
+ 'item_name': 'Acer Swift 3 10 Gen Core i5 14-inch Ultra Thin and Light '
+              '(8GB/512GB SSD/Windows 10/2GB Graphics/Steel Grey/1.19 kg), '
+              'SF314-57G',
+ 'item_price': 0,
+ 'item_url': 'https://www.amazon.in/Acer-SF314-57G-i5-1035G1-processor-Thunderbolt/dp/B07Z88C1ZR/ref=sr_1_9?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-9',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 3 Intel i3-10th Gen 15.6 - inch 1920 x 1080 Thin and Light Laptop (4GB Ram/1TB HDD/Window 10/Intel UHD Graphics/Black/1.9 kgs), A315-56
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/81YUWJOwMDL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Aspire-Intel-i3-10th-15-6/dp/B088CFBQFN/ref=sr_1_10?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-10
+INFO: Item price scraped ... None
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/81YUWJOwMDL._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 3 Intel i3-10th Gen 15.6 - inch 1920 x 1080 Thin '
+              'and Light Laptop (4GB Ram/1TB HDD/Window 10/Intel UHD '
+              'Graphics/Black/1.9 kgs), A315-56',
+ 'item_price': 0,
+ 'item_url': 'https://www.amazon.in/Acer-Aspire-Intel-i3-10th-15-6/dp/B088CFBQFN/ref=sr_1_10?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-10',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Swift 3 10th Gen Core i5 14-inch Ultra Thin and Light Laptop (8GB/512GB SSD/Windows 10/Steel Gray/1.19kg), SF314-57
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/81RAueA5gyL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-SF314-57-i5-1035G1-processor-Thunderbolt/dp/B07Z87FF2X/ref=sr_1_11?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-11
+INFO: Item price scraped ... 62,450
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/81RAueA5gyL._AC_UY218_.jpg',
+ 'item_name': 'Acer Swift 3 10th Gen Core i5 14-inch Ultra Thin and Light '
+              'Laptop (8GB/512GB SSD/Windows 10/Steel Gray/1.19kg), SF314-57',
+ 'item_price': '62,450',
+ 'item_url': 'https://www.amazon.in/Acer-SF314-57-i5-1035G1-processor-Thunderbolt/dp/B07Z87FF2X/ref=sr_1_11?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-11',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 7 9th Gen Core i7 15.6-inch Gaming Laptop (8GB/1TB SSD /Windows 10/6GB Graphics/Obsidian Black/2.5kg), AN715-51
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/7103xmi76tL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-AN715-51-15-6-inch-Notebook-Processor/dp/B07TFD7PWY/ref=sr_1_12?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-12
+INFO: Item price scraped ... 94,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/7103xmi76tL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 7 9th Gen Core i7 15.6-inch Gaming Laptop (8GB/1TB '
+              'SSD /Windows 10/6GB Graphics/Obsidian Black/2.5kg), AN715-51',
+ 'item_price': '94,990',
+ 'item_url': 'https://www.amazon.in/Acer-AN715-51-15-6-inch-Notebook-Processor/dp/B07TFD7PWY/ref=sr_1_12?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-12',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Predator Triton 300 PT315-51 2019 15.6-inch Gaming Laptop (9th Gen Core i5 9300H/8GB/1TB HDD + 256GB SSD/Windows 10 Home/4GB NVIDIA GeForce GTX 1650 Graphics), Abyssal Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71EGs7rkM6L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Predator-PT315-51-15-6-inch-Graphics/dp/B0888VXZXX/ref=sr_1_13?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-13
+INFO: Item price scraped ... 74,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71EGs7rkM6L._AC_UY218_.jpg',
+ 'item_name': 'Acer Predator Triton 300 PT315-51 2019 15.6-inch Gaming Laptop '
+              '(9th Gen Core i5 9300H/8GB/1TB HDD + 256GB SSD/Windows 10 '
+              'Home/4GB NVIDIA GeForce GTX 1650 Graphics), Abyssal Black',
+ 'item_price': '74,990',
+ 'item_url': 'https://www.amazon.in/Acer-Predator-PT315-51-15-6-inch-Graphics/dp/B0888VXZXX/ref=sr_1_13?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-13',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 5 A514-52G 14-inch Laptop (10th Gen Intel Core i5-10210U processor/8GB/512GB SSD/Window 10 Home 64Bit/2 GB of Nvidia MX350 Graphics), Silver
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/51neuGuk1ML._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-A514-52G-i5-10210U-processor-Graphics/dp/B08F3RL8TZ/ref=sr_1_14?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-14
+INFO: Item price scraped ... 58,840
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/51neuGuk1ML._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 5 A514-52G 14-inch Laptop (10th Gen Intel Core '
+              'i5-10210U processor/8GB/512GB SSD/Window 10 Home 64Bit/2 GB of '
+              'Nvidia MX350 Graphics), Silver',
+ 'item_price': '58,840',
+ 'item_url': 'https://www.amazon.in/Acer-A514-52G-i5-10210U-processor-Graphics/dp/B08F3RL8TZ/ref=sr_1_14?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-14',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 5 AN515-44 15.6-inch Laptop (AMD Ryzen 7 4800H Octa-core processor/8GB/1TB HDD + 256GB SSD/Window 10 Home 64Bit/Integrated Graphics), Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71FhZuQENEL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-AN515-44-15-6-inch-Octa-core-Integrated/dp/B08GQSW74D/ref=sr_1_15?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-15
+INFO: Item price scraped ... 79,980
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71FhZuQENEL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 AN515-44 15.6-inch Laptop (AMD Ryzen 7 4800H '
+              'Octa-core processor/8GB/1TB HDD + 256GB SSD/Window 10 Home '
+              '64Bit/Integrated Graphics), Black',
+ 'item_price': '79,980',
+ 'item_url': 'https://www.amazon.in/Acer-AN515-44-15-6-inch-Octa-core-Integrated/dp/B08GQSW74D/ref=sr_1_15?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-15',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 5 AN515-55 15.6-inch 144Hz Display Gaming Notebook (10th Gen Intel Core i5-10300H processor/8GB/1TB HDD + 256GB SSD/Windows 10 Home 64 bit/GTX 1650Ti Graphics), Obsidian Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71+kGr+5LrL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-AN515-55-15-6-inch-i5-10300H-processor/dp/B088FLNT3G/ref=sr_1_16?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-16
+INFO: Item price scraped ... 79,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71+kGr+5LrL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 AN515-55 15.6-inch 144Hz Display Gaming Notebook '
+              '(10th Gen Intel Core i5-10300H processor/8GB/1TB HDD + 256GB '
+              'SSD/Windows 10 Home 64 bit/GTX 1650Ti Graphics), Obsidian Black',
+ 'item_price': '79,990',
+ 'item_url': 'https://www.amazon.in/Acer-AN515-55-15-6-inch-i5-10300H-processor/dp/B088FLNT3G/ref=sr_1_16?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-16',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Predator Triton 300 PT315-51 2019 15.6-inch Gaming Laptop (9th Gen Core i7 9750H/16GB/1TB HDD + 256GB SSD/Windows 10 Home/4GB NVIDIA GeForce GTX 1650 Graphics), Abyssal Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71EGs7rkM6L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Predator-PT315-51-15-6-inch-Graphics/dp/B0888TLS9L/ref=sr_1_17?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-17
+INFO: Item price scraped ... 97,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71EGs7rkM6L._AC_UY218_.jpg',
+ 'item_name': 'Acer Predator Triton 300 PT315-51 2019 15.6-inch Gaming Laptop '
+              '(9th Gen Core i7 9750H/16GB/1TB HDD + 256GB SSD/Windows 10 '
+              'Home/4GB NVIDIA GeForce GTX 1650 Graphics), Abyssal Black',
+ 'item_price': '97,990',
+ 'item_url': 'https://www.amazon.in/Acer-Predator-PT315-51-15-6-inch-Graphics/dp/B0888TLS9L/ref=sr_1_17?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-17',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 5 Intel i5-9th Gen 15.6-inch Display 1920 x 1080 Thin and Light Gaming Laptop (8GB Ram+16GB Optane/1TB HDD/Windows 10 Home/GTX 1650 Graphics/Obsidian Black/2.3 Kgs), AN515-54
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71QXJg8uOCL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN515-54/dp/B08H9NCMJ7/ref=sr_1_18?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-18
+INFO: Item price scraped ... 60,129
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71QXJg8uOCL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 Intel i5-9th Gen 15.6-inch Display 1920 x 1080 '
+              'Thin and Light Gaming Laptop (8GB Ram+16GB Optane/1TB '
+              'HDD/Windows 10 Home/GTX 1650 Graphics/Obsidian Black/2.3 Kgs), '
+              'AN515-54',
+ 'item_price': '60,129',
+ 'item_url': 'https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN515-54/dp/B08H9NCMJ7/ref=sr_1_18?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-18',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 5 AN515-55 15.6-inch FHD IPS Display Gaming Notebook (10th Gen Intel Core i5-10300H processor/8GB/1TB HDD + 256GB SSD/Windows 10 Home 64 bit/GTX 1650 Graphics), Obsidian Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71+kGr+5LrL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-AN515-55-15-6-inch-i5-10300H-processor/dp/B088FLYQJ9/ref=sr_1_19?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-19
+INFO: Item price scraped ... 74,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71+kGr+5LrL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 AN515-55 15.6-inch FHD IPS Display Gaming Notebook '
+              '(10th Gen Intel Core i5-10300H processor/8GB/1TB HDD + 256GB '
+              'SSD/Windows 10 Home 64 bit/GTX 1650 Graphics), Obsidian Black',
+ 'item_price': '74,990',
+ 'item_url': 'https://www.amazon.in/Acer-AN515-55-15-6-inch-i5-10300H-processor/dp/B088FLYQJ9/ref=sr_1_19?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-19',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin and Light Laptop (8GB Ram/1TB HDD + 512 GB SSD/Window 10 Pro/Integrated Graphics/Black/1.68 Kgs), TMP214-52
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CYBC28J/ref=sr_1_20?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-20
+INFO: Item price scraped ... 61,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg',
+ 'item_name': 'Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin '
+              'and Light Laptop (8GB Ram/1TB HDD + 512 GB SSD/Window 10 '
+              'Pro/Integrated Graphics/Black/1.68 Kgs), TMP214-52',
+ 'item_price': '61,990',
+ 'item_url': 'https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CYBC28J/ref=sr_1_20?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-20',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin and Light Laptop (8GB Ram/512 GB SSD/Window 10 Pro/Integrated Graphics/Black/1.68 Kgs), TMP214-52
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CYB2WX4/ref=sr_1_21?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-21
+INFO: Item price scraped ... 57,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg',
+ 'item_name': 'Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin '
+              'and Light Laptop (8GB Ram/512 GB SSD/Window 10 Pro/Integrated '
+              'Graphics/Black/1.68 Kgs), TMP214-52',
+ 'item_price': '57,990',
+ 'item_url': 'https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CYB2WX4/ref=sr_1_21?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-21',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer 28-inch (71.12 cm) 4K Monitor with AMD Free Sync Technology, Stereo Speakers - KG281K (Black)
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/81ZMmEmPh1L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-inch-71-12-Monitor-Resolution/dp/B079N8BR8G/ref=sr_1_22?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-22
+INFO: Item price scraped ... 20,660
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/81ZMmEmPh1L._AC_UY218_.jpg',
+ 'item_name': 'Acer 28-inch (71.12 cm) 4K Monitor with AMD Free Sync '
+              'Technology, Stereo Speakers - KG281K (Black)',
+ 'item_price': '20,660',
+ 'item_url': 'https://www.amazon.in/Acer-inch-71-12-Monitor-Resolution/dp/B079N8BR8G/ref=sr_1_22?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-22',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Swift 5 10th Gen Core i5 14-inch Thin and Light Laptop (8GB/512GB SSD/Windows 10/Charcoal Blue/0.99kg), SF514-54T
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71wy1g+k8wL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-14-inch-Windows-Charcoal-SF514-54T/dp/B082FJ5M6K/ref=sr_1_23?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-23
+INFO: Item price scraped ... None
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71wy1g+k8wL._AC_UY218_.jpg',
+ 'item_name': 'Acer Swift 5 10th Gen Core i5 14-inch Thin and Light Laptop '
+              '(8GB/512GB SSD/Windows 10/Charcoal Blue/0.99kg), SF514-54T',
+ 'item_price': 0,
+ 'item_url': 'https://www.amazon.in/Acer-14-inch-Windows-Charcoal-SF514-54T/dp/B082FJ5M6K/ref=sr_1_23?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-23',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin and Light Laptop (8GB Ram/1TB HDD/Window 10 Pro/Integrated Graphics/Black/1.68 Kgs), TMP214-52
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CY6X6WV/ref=sr_1_24?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-24
+INFO: Item price scraped ... 52,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg',
+ 'item_name': 'Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin '
+              'and Light Laptop (8GB Ram/1TB HDD/Window 10 Pro/Integrated '
+              'Graphics/Black/1.68 Kgs), TMP214-52',
+ 'item_price': '52,990',
+ 'item_url': 'https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CY6X6WV/ref=sr_1_24?dchild=1&keywords=acer+laptops&qid=1601109800&s=computers&sr=1-24',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 3 A315-23 15.6-inch Laptop (AMD Ryzen 5-3500U/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Vega 8 Mobile Graphics), Silver
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/610oaBCr+XL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/gp/slredirect/picassoRedirect.html/ref=pa_sp_btf_computers_sr_pg1_1?ie=UTF8&adId=A1007379Z0YO1ZDYKA0U&url=%2FAcer-A315-23-15-6-inch-5-3500U-Graphics%2Fdp%2FB088CDKJ7V%2Fref%3Dsr_1_25_sspa%3Fdchild%3D1%26keywords%3Dacer%2Blaptops%26qid%3D1601109800%26s%3Dcomputers%26sr%3D1-25-spons%26psc%3D1&qualifier=1601109800&id=5267097595557240&widgetName=sp_btf
+INFO: Item price scraped ... 41,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/610oaBCr+XL._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 3 A315-23 15.6-inch Laptop (AMD Ryzen '
+              '5-3500U/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Vega 8 '
+              'Mobile Graphics), Silver',
+ 'item_price': '41,990',
+ 'item_url': 'https://www.amazon.in/gp/slredirect/picassoRedirect.html/ref=pa_sp_btf_computers_sr_pg1_1?ie=UTF8&adId=A1007379Z0YO1ZDYKA0U&url=%2FAcer-A315-23-15-6-inch-5-3500U-Graphics%2Fdp%2FB088CDKJ7V%2Fref%3Dsr_1_25_sspa%3Fdchild%3D1%26keywords%3Dacer%2Blaptops%26qid%3D1601109800%26s%3Dcomputers%26sr%3D1-25-spons%26psc%3D1&qualifier=1601109800&id=5267097595557240&widgetName=sp_btf',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Swift 3 SF314-42 14-inch Laptop (AMD Ryzen 5 4500U Hexa-core processor/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Graphics), Silver
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71uiWfC6O7L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/gp/slredirect/picassoRedirect.html/ref=pa_sp_btf_computers_sr_pg1_1?ie=UTF8&adId=A10075032GY6XSNZQH03J&url=%2FAcer-SF314-42-Hexa-core-processor-Graphics%2Fdp%2FB0894NHJH4%2Fref%3Dsr_1_26_sspa%3Fdchild%3D1%26keywords%3Dacer%2Blaptops%26qid%3D1601109800%26s%3Dcomputers%26sr%3D1-26-spons%26psc%3D1&qualifier=1601109800&id=5267097595557240&widgetName=sp_btf
+INFO: Item price scraped ... 61,590
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71uiWfC6O7L._AC_UY218_.jpg',
+ 'item_name': 'Acer Swift 3 SF314-42 14-inch Laptop (AMD Ryzen 5 4500U '
+              'Hexa-core processor/8GB/512GB SSD/Window 10, Home, 64Bit/AMD '
+              'Radeon Graphics), Silver',
+ 'item_price': '61,590',
+ 'item_url': 'https://www.amazon.in/gp/slredirect/picassoRedirect.html/ref=pa_sp_btf_computers_sr_pg1_1?ie=UTF8&adId=A10075032GY6XSNZQH03J&url=%2FAcer-SF314-42-Hexa-core-processor-Graphics%2Fdp%2FB0894NHJH4%2Fref%3Dsr_1_26_sspa%3Fdchild%3D1%26keywords%3Dacer%2Blaptops%26qid%3D1601109800%26s%3Dcomputers%26sr%3D1-26-spons%26psc%3D1&qualifier=1601109800&id=5267097595557240&widgetName=sp_btf',
+ 'retailer_id': 1}
+INFO: Closing spider (finished)
+INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 486,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 130048,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 1.656843,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 9, 26, 8, 43, 22, 724558),
+ 'item_scraped_count': 26,
+ 'log_count/DEBUG': 27,
+ 'log_count/INFO': 115,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 9, 26, 8, 43, 21, 67715)}
+INFO: Spider closed (finished)
+INFO: Search id 54
+INFO: 127.0.0.1 - - [26/Sep/2020 14:13:22] "[37mGET /search/Acer%20Laptops HTTP/1.1[0m" 200 -
+INFO:  * Restarting with stat
+WARNING:  * Debugger is active!
+INFO:  * Debugger PIN: 178-542-061
+INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO: Overridden settings:
+{'COOKIES_ENABLED': False,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_STDOUT': True,
+ 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+               '(KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36'}
+INFO: Telnet Password: 7834f8525568b1a0
+INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+INFO: Enabled item pipelines:
+[]
+INFO: Spider opened
+INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+INFO: Telnet console listening on 127.0.0.1:6023
+DEBUG: Crawled (200) <GET https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops> (referer: None)
+INFO: All results found. Looping through the results .... 
+INFO: Item name scraped ... Acer Nitro 5 AN515-54 15.6-inch Gaming Laptop (9th Gen Intel Core i5-9300H processor/8GB/1TB+256GB SSD/Windows 10 Home 64-bit/NVIDIA GeForce GTX 1650 with 4 GB), Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71QXJg8uOCL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-AN515-54-15-6-inch-i5-9300H-processor/dp/B0894NY25W/ref=sr_1_1?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-1
+INFO: Item price scraped ... 64,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71QXJg8uOCL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 AN515-54 15.6-inch Gaming Laptop (9th Gen Intel '
+              'Core i5-9300H processor/8GB/1TB+256GB SSD/Windows 10 Home '
+              '64-bit/NVIDIA GeForce GTX 1650 with 4 GB), Black',
+ 'item_price': '64,990',
+ 'item_url': 'https://www.amazon.in/Acer-AN515-54-15-6-inch-i5-9300H-processor/dp/B0894NY25W/ref=sr_1_1?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-1',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 3 Intel i5-10th Gen 15.6 - inch 1920 x 1080 Thin and Light Laptop (8GB Ram/1TB HDD/Window 10/Intel UHD Graphics/Black/1.9 kgs), A315-56
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/810mRHoIxML._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Aspire-Intel-i5-10th-15-6/dp/B088CFBMRP/ref=sr_1_2?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-2
+INFO: Item price scraped ... 45,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/810mRHoIxML._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 3 Intel i5-10th Gen 15.6 - inch 1920 x 1080 Thin '
+              'and Light Laptop (8GB Ram/1TB HDD/Window 10/Intel UHD '
+              'Graphics/Black/1.9 kgs), A315-56',
+ 'item_price': '45,990',
+ 'item_url': 'https://www.amazon.in/Acer-Aspire-Intel-i5-10th-15-6/dp/B088CFBMRP/ref=sr_1_2?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-2',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 3 A315-23 15.6-inch Laptop (AMD Ryzen 5-3500U/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Vega 8 Mobile Graphics), Silver
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/610oaBCr+XL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-A315-23-15-6-inch-5-3500U-Graphics/dp/B088CDKJ7V/ref=sr_1_3?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-3
+INFO: Item price scraped ... 41,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/610oaBCr+XL._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 3 A315-23 15.6-inch Laptop (AMD Ryzen '
+              '5-3500U/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Vega 8 '
+              'Mobile Graphics), Silver',
+ 'item_price': '41,990',
+ 'item_url': 'https://www.amazon.in/Acer-A315-23-15-6-inch-5-3500U-Graphics/dp/B088CDKJ7V/ref=sr_1_3?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-3',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Acer One Intel Pentium Gold 4415U Processor 14-inch Display 1366 x 768 Laptop (4 GB Ram/1TB HDD/Windows 10 Home/Integrated Graphics/Black/1.8kgs), Z2-485
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/61S1y24GgmL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Processor-Integrated-Graphics-Z2-485/dp/B08CY9SL14/ref=sr_1_4?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-4
+INFO: Item price scraped ... 28,749
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/61S1y24GgmL._AC_UY218_.jpg',
+ 'item_name': 'Acer Acer One Intel Pentium Gold 4415U Processor 14-inch '
+              'Display 1366 x 768 Laptop (4 GB Ram/1TB HDD/Windows 10 '
+              'Home/Integrated Graphics/Black/1.8kgs), Z2-485',
+ 'item_price': '28,749',
+ 'item_url': 'https://www.amazon.in/Acer-Processor-Integrated-Graphics-Z2-485/dp/B08CY9SL14/ref=sr_1_4?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-4',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 5 Intel i5-9th Gen 15.6-inch Display 1920 x 1080 Thin and Light Gaming Laptop (8GB Ram/1TB HDD/Windows 10 Home/GTX 1650 Graphics/Obsidian Black/2.3 Kgs), AN515-54
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/81IXuyeJhYL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN515-54/dp/B088FLW4TW/ref=sr_1_5?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-5
+INFO: Item price scraped ... 59,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/81IXuyeJhYL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 Intel i5-9th Gen 15.6-inch Display 1920 x 1080 '
+              'Thin and Light Gaming Laptop (8GB Ram/1TB HDD/Windows 10 '
+              'Home/GTX 1650 Graphics/Obsidian Black/2.3 Kgs), AN515-54',
+ 'item_price': '59,990',
+ 'item_url': 'https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN515-54/dp/B088FLW4TW/ref=sr_1_5?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-5',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Swift 3 SF314-42 14-inch Laptop (AMD Ryzen 5 4500U Hexa-core processor/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Graphics), Silver
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71uiWfC6O7L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-SF314-42-Hexa-core-processor-Graphics/dp/B0894NHJH4/ref=sr_1_6?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-6
+INFO: Item price scraped ... 61,590
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71uiWfC6O7L._AC_UY218_.jpg',
+ 'item_name': 'Acer Swift 3 SF314-42 14-inch Laptop (AMD Ryzen 5 4500U '
+              'Hexa-core processor/8GB/512GB SSD/Window 10, Home, 64Bit/AMD '
+              'Radeon Graphics), Silver',
+ 'item_price': '61,590',
+ 'item_url': 'https://www.amazon.in/Acer-SF314-42-Hexa-core-processor-Graphics/dp/B0894NHJH4/ref=sr_1_6?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-6',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 7 9th Gen Core i5 15.6-inch Full HD IPS Thin and Light Gaming Laptop (8GB/1TB SSD/Windows 10/6GB Graphics/Obsidian Black/2.5kg), AN715-51
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71IBJRa3EBL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN715-51/dp/B08159BP1K/ref=sr_1_7?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-7
+INFO: Item price scraped ... 82,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71IBJRa3EBL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 7 9th Gen Core i5 15.6-inch Full HD IPS Thin and '
+              'Light Gaming Laptop (8GB/1TB SSD/Windows 10/6GB '
+              'Graphics/Obsidian Black/2.5kg), AN715-51',
+ 'item_price': '82,990',
+ 'item_url': 'https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN715-51/dp/B08159BP1K/ref=sr_1_7?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-7',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 3 AMD Athlon 3050U 15.6 - inch (1366 x 768) Thin and Light Laptop (8GB Ram/1TB HDD/Window 10 Home 64 bit/Charcoal Black),3 Year Warranty /Backpack
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71kTx-8KxjL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Aspire-Athlon-3050U-15-6/dp/B08HRV2NQH/ref=sr_1_8?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-8
+INFO: Item price scraped ... 34,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71kTx-8KxjL._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 3 AMD Athlon 3050U 15.6 - inch (1366 x 768) Thin '
+              'and Light Laptop (8GB Ram/1TB HDD/Window 10 Home 64 '
+              'bit/Charcoal Black),3 Year Warranty /Backpack',
+ 'item_price': '34,990',
+ 'item_url': 'https://www.amazon.in/Acer-Aspire-Athlon-3050U-15-6/dp/B08HRV2NQH/ref=sr_1_8?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-8',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Swift 3 10 Gen Core i5 14-inch Ultra Thin and Light (8GB/512GB SSD/Windows 10/2GB Graphics/Steel Grey/1.19 kg), SF314-57G
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/81RAueA5gyL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-SF314-57G-i5-1035G1-processor-Thunderbolt/dp/B07Z88C1ZR/ref=sr_1_9?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-9
+INFO: Item price scraped ... None
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/81RAueA5gyL._AC_UY218_.jpg',
+ 'item_name': 'Acer Swift 3 10 Gen Core i5 14-inch Ultra Thin and Light '
+              '(8GB/512GB SSD/Windows 10/2GB Graphics/Steel Grey/1.19 kg), '
+              'SF314-57G',
+ 'item_price': 0,
+ 'item_url': 'https://www.amazon.in/Acer-SF314-57G-i5-1035G1-processor-Thunderbolt/dp/B07Z88C1ZR/ref=sr_1_9?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-9',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 3 Intel i3-10th Gen 15.6 - inch 1920 x 1080 Thin and Light Laptop (4GB Ram/1TB HDD/Window 10/Intel UHD Graphics/Black/1.9 kgs), A315-56
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/81YUWJOwMDL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Aspire-Intel-i3-10th-15-6/dp/B088CFBQFN/ref=sr_1_10?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-10
+INFO: Item price scraped ... None
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/81YUWJOwMDL._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 3 Intel i3-10th Gen 15.6 - inch 1920 x 1080 Thin '
+              'and Light Laptop (4GB Ram/1TB HDD/Window 10/Intel UHD '
+              'Graphics/Black/1.9 kgs), A315-56',
+ 'item_price': 0,
+ 'item_url': 'https://www.amazon.in/Acer-Aspire-Intel-i3-10th-15-6/dp/B088CFBQFN/ref=sr_1_10?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-10',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Swift 3 10th Gen Core i5 14-inch Ultra Thin and Light Laptop (8GB/512GB SSD/Windows 10/Steel Gray/1.19kg), SF314-57
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/81RAueA5gyL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-SF314-57-i5-1035G1-processor-Thunderbolt/dp/B07Z87FF2X/ref=sr_1_11?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-11
+INFO: Item price scraped ... 62,450
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/81RAueA5gyL._AC_UY218_.jpg',
+ 'item_name': 'Acer Swift 3 10th Gen Core i5 14-inch Ultra Thin and Light '
+              'Laptop (8GB/512GB SSD/Windows 10/Steel Gray/1.19kg), SF314-57',
+ 'item_price': '62,450',
+ 'item_url': 'https://www.amazon.in/Acer-SF314-57-i5-1035G1-processor-Thunderbolt/dp/B07Z87FF2X/ref=sr_1_11?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-11',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 7 9th Gen Core i7 15.6-inch Gaming Laptop (8GB/1TB SSD /Windows 10/6GB Graphics/Obsidian Black/2.5kg), AN715-51
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/7103xmi76tL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-AN715-51-15-6-inch-Notebook-Processor/dp/B07TFD7PWY/ref=sr_1_12?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-12
+INFO: Item price scraped ... 94,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/7103xmi76tL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 7 9th Gen Core i7 15.6-inch Gaming Laptop (8GB/1TB '
+              'SSD /Windows 10/6GB Graphics/Obsidian Black/2.5kg), AN715-51',
+ 'item_price': '94,990',
+ 'item_url': 'https://www.amazon.in/Acer-AN715-51-15-6-inch-Notebook-Processor/dp/B07TFD7PWY/ref=sr_1_12?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-12',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Predator Triton 300 PT315-51 2019 15.6-inch Gaming Laptop (9th Gen Core i5 9300H/8GB/1TB HDD + 256GB SSD/Windows 10 Home/4GB NVIDIA GeForce GTX 1650 Graphics), Abyssal Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71EGs7rkM6L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Predator-PT315-51-15-6-inch-Graphics/dp/B0888VXZXX/ref=sr_1_13?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-13
+INFO: Item price scraped ... 74,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71EGs7rkM6L._AC_UY218_.jpg',
+ 'item_name': 'Acer Predator Triton 300 PT315-51 2019 15.6-inch Gaming Laptop '
+              '(9th Gen Core i5 9300H/8GB/1TB HDD + 256GB SSD/Windows 10 '
+              'Home/4GB NVIDIA GeForce GTX 1650 Graphics), Abyssal Black',
+ 'item_price': '74,990',
+ 'item_url': 'https://www.amazon.in/Acer-Predator-PT315-51-15-6-inch-Graphics/dp/B0888VXZXX/ref=sr_1_13?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-13',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 5 A514-52G 14-inch Laptop (10th Gen Intel Core i5-10210U processor/8GB/512GB SSD/Window 10 Home 64Bit/2 GB of Nvidia MX350 Graphics), Silver
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/51neuGuk1ML._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-A514-52G-i5-10210U-processor-Graphics/dp/B08F3RL8TZ/ref=sr_1_14?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-14
+INFO: Item price scraped ... 58,840
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/51neuGuk1ML._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 5 A514-52G 14-inch Laptop (10th Gen Intel Core '
+              'i5-10210U processor/8GB/512GB SSD/Window 10 Home 64Bit/2 GB of '
+              'Nvidia MX350 Graphics), Silver',
+ 'item_price': '58,840',
+ 'item_url': 'https://www.amazon.in/Acer-A514-52G-i5-10210U-processor-Graphics/dp/B08F3RL8TZ/ref=sr_1_14?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-14',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 5 AN515-44 15.6-inch Laptop (AMD Ryzen 7 4800H Octa-core processor/8GB/1TB HDD + 256GB SSD/Window 10 Home 64Bit/Integrated Graphics), Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71FhZuQENEL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-AN515-44-15-6-inch-Octa-core-Integrated/dp/B08GQSW74D/ref=sr_1_15?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-15
+INFO: Item price scraped ... 79,980
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71FhZuQENEL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 AN515-44 15.6-inch Laptop (AMD Ryzen 7 4800H '
+              'Octa-core processor/8GB/1TB HDD + 256GB SSD/Window 10 Home '
+              '64Bit/Integrated Graphics), Black',
+ 'item_price': '79,980',
+ 'item_url': 'https://www.amazon.in/Acer-AN515-44-15-6-inch-Octa-core-Integrated/dp/B08GQSW74D/ref=sr_1_15?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-15',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 5 AN515-55 15.6-inch 144Hz Display Gaming Notebook (10th Gen Intel Core i5-10300H processor/8GB/1TB HDD + 256GB SSD/Windows 10 Home 64 bit/GTX 1650Ti Graphics), Obsidian Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71+kGr+5LrL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-AN515-55-15-6-inch-i5-10300H-processor/dp/B088FLNT3G/ref=sr_1_16?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-16
+INFO: Item price scraped ... 79,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71+kGr+5LrL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 AN515-55 15.6-inch 144Hz Display Gaming Notebook '
+              '(10th Gen Intel Core i5-10300H processor/8GB/1TB HDD + 256GB '
+              'SSD/Windows 10 Home 64 bit/GTX 1650Ti Graphics), Obsidian Black',
+ 'item_price': '79,990',
+ 'item_url': 'https://www.amazon.in/Acer-AN515-55-15-6-inch-i5-10300H-processor/dp/B088FLNT3G/ref=sr_1_16?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-16',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Predator Triton 300 PT315-51 2019 15.6-inch Gaming Laptop (9th Gen Core i7 9750H/16GB/1TB HDD + 256GB SSD/Windows 10 Home/4GB NVIDIA GeForce GTX 1650 Graphics), Abyssal Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71EGs7rkM6L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Predator-PT315-51-15-6-inch-Graphics/dp/B0888TLS9L/ref=sr_1_17?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-17
+INFO: Item price scraped ... 97,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71EGs7rkM6L._AC_UY218_.jpg',
+ 'item_name': 'Acer Predator Triton 300 PT315-51 2019 15.6-inch Gaming Laptop '
+              '(9th Gen Core i7 9750H/16GB/1TB HDD + 256GB SSD/Windows 10 '
+              'Home/4GB NVIDIA GeForce GTX 1650 Graphics), Abyssal Black',
+ 'item_price': '97,990',
+ 'item_url': 'https://www.amazon.in/Acer-Predator-PT315-51-15-6-inch-Graphics/dp/B0888TLS9L/ref=sr_1_17?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-17',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 5 Intel i5-9th Gen 15.6-inch Display 1920 x 1080 Thin and Light Gaming Laptop (8GB Ram+16GB Optane/1TB HDD/Windows 10 Home/GTX 1650 Graphics/Obsidian Black/2.3 Kgs), AN515-54
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71QXJg8uOCL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN515-54/dp/B08H9NCMJ7/ref=sr_1_18?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-18
+INFO: Item price scraped ... 60,129
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71QXJg8uOCL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 Intel i5-9th Gen 15.6-inch Display 1920 x 1080 '
+              'Thin and Light Gaming Laptop (8GB Ram+16GB Optane/1TB '
+              'HDD/Windows 10 Home/GTX 1650 Graphics/Obsidian Black/2.3 Kgs), '
+              'AN515-54',
+ 'item_price': '60,129',
+ 'item_url': 'https://www.amazon.in/Acer-15-6-inch-Graphics-Obsidian-AN515-54/dp/B08H9NCMJ7/ref=sr_1_18?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-18',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Nitro 5 AN515-55 15.6-inch FHD IPS Display Gaming Notebook (10th Gen Intel Core i5-10300H processor/8GB/1TB HDD + 256GB SSD/Windows 10 Home 64 bit/GTX 1650 Graphics), Obsidian Black
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71+kGr+5LrL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-AN515-55-15-6-inch-i5-10300H-processor/dp/B088FLYQJ9/ref=sr_1_19?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-19
+INFO: Item price scraped ... 74,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71+kGr+5LrL._AC_UY218_.jpg',
+ 'item_name': 'Acer Nitro 5 AN515-55 15.6-inch FHD IPS Display Gaming Notebook '
+              '(10th Gen Intel Core i5-10300H processor/8GB/1TB HDD + 256GB '
+              'SSD/Windows 10 Home 64 bit/GTX 1650 Graphics), Obsidian Black',
+ 'item_price': '74,990',
+ 'item_url': 'https://www.amazon.in/Acer-AN515-55-15-6-inch-i5-10300H-processor/dp/B088FLYQJ9/ref=sr_1_19?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-19',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin and Light Laptop (8GB Ram/1TB HDD + 512 GB SSD/Window 10 Pro/Integrated Graphics/Black/1.68 Kgs), TMP214-52
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CYBC28J/ref=sr_1_20?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-20
+INFO: Item price scraped ... 61,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg',
+ 'item_name': 'Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin '
+              'and Light Laptop (8GB Ram/1TB HDD + 512 GB SSD/Window 10 '
+              'Pro/Integrated Graphics/Black/1.68 Kgs), TMP214-52',
+ 'item_price': '61,990',
+ 'item_url': 'https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CYBC28J/ref=sr_1_20?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-20',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin and Light Laptop (8GB Ram/512 GB SSD/Window 10 Pro/Integrated Graphics/Black/1.68 Kgs), TMP214-52
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CYB2WX4/ref=sr_1_21?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-21
+INFO: Item price scraped ... 57,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg',
+ 'item_name': 'Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin '
+              'and Light Laptop (8GB Ram/512 GB SSD/Window 10 Pro/Integrated '
+              'Graphics/Black/1.68 Kgs), TMP214-52',
+ 'item_price': '57,990',
+ 'item_url': 'https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CYB2WX4/ref=sr_1_21?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-21',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer 28-inch (71.12 cm) 4K Monitor with AMD Free Sync Technology, Stereo Speakers - KG281K (Black)
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/81ZMmEmPh1L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-inch-71-12-Monitor-Resolution/dp/B079N8BR8G/ref=sr_1_22?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-22
+INFO: Item price scraped ... 20,660
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/81ZMmEmPh1L._AC_UY218_.jpg',
+ 'item_name': 'Acer 28-inch (71.12 cm) 4K Monitor with AMD Free Sync '
+              'Technology, Stereo Speakers - KG281K (Black)',
+ 'item_price': '20,660',
+ 'item_url': 'https://www.amazon.in/Acer-inch-71-12-Monitor-Resolution/dp/B079N8BR8G/ref=sr_1_22?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-22',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Swift 5 10th Gen Core i5 14-inch Thin and Light Laptop (8GB/512GB SSD/Windows 10/Charcoal Blue/0.99kg), SF514-54T
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71wy1g+k8wL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-14-inch-Windows-Charcoal-SF514-54T/dp/B082FJ5M6K/ref=sr_1_23?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-23
+INFO: Item price scraped ... None
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71wy1g+k8wL._AC_UY218_.jpg',
+ 'item_name': 'Acer Swift 5 10th Gen Core i5 14-inch Thin and Light Laptop '
+              '(8GB/512GB SSD/Windows 10/Charcoal Blue/0.99kg), SF514-54T',
+ 'item_price': 0,
+ 'item_url': 'https://www.amazon.in/Acer-14-inch-Windows-Charcoal-SF514-54T/dp/B082FJ5M6K/ref=sr_1_23?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-23',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin and Light Laptop (8GB Ram/1TB HDD/Window 10 Pro/Integrated Graphics/Black/1.68 Kgs), TMP214-52
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CY6X6WV/ref=sr_1_24?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-24
+INFO: Item price scraped ... 52,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71tE39W1f4L._AC_UY218_.jpg',
+ 'item_name': 'Acer Travelmate Intel i5-10th Gen 14-inch Display 1366x768 Thin '
+              'and Light Laptop (8GB Ram/1TB HDD/Window 10 Pro/Integrated '
+              'Graphics/Black/1.68 Kgs), TMP214-52',
+ 'item_price': '52,990',
+ 'item_url': 'https://www.amazon.in/Acer-Travelmate-1366x768-Integrated-TMP214-52/dp/B08CY6X6WV/ref=sr_1_24?dchild=1&keywords=acer+laptops&qid=1601109859&s=computers&sr=1-24',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Aspire 3 A315-23 15.6-inch Laptop (AMD Ryzen 5-3500U/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Vega 8 Mobile Graphics), Silver
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/610oaBCr+XL._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/gp/slredirect/picassoRedirect.html/ref=pa_sp_btf_computers_sr_pg1_1?ie=UTF8&adId=A1007379Z0YO1ZDYKA0U&url=%2FAcer-A315-23-15-6-inch-5-3500U-Graphics%2Fdp%2FB088CDKJ7V%2Fref%3Dsr_1_25_sspa%3Fdchild%3D1%26keywords%3Dacer%2Blaptops%26qid%3D1601109859%26s%3Dcomputers%26sr%3D1-25-spons%26psc%3D1&qualifier=1601109858&id=1352566140498730&widgetName=sp_btf
+INFO: Item price scraped ... 41,990
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/610oaBCr+XL._AC_UY218_.jpg',
+ 'item_name': 'Acer Aspire 3 A315-23 15.6-inch Laptop (AMD Ryzen '
+              '5-3500U/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Vega 8 '
+              'Mobile Graphics), Silver',
+ 'item_price': '41,990',
+ 'item_url': 'https://www.amazon.in/gp/slredirect/picassoRedirect.html/ref=pa_sp_btf_computers_sr_pg1_1?ie=UTF8&adId=A1007379Z0YO1ZDYKA0U&url=%2FAcer-A315-23-15-6-inch-5-3500U-Graphics%2Fdp%2FB088CDKJ7V%2Fref%3Dsr_1_25_sspa%3Fdchild%3D1%26keywords%3Dacer%2Blaptops%26qid%3D1601109859%26s%3Dcomputers%26sr%3D1-25-spons%26psc%3D1&qualifier=1601109858&id=1352566140498730&widgetName=sp_btf',
+ 'retailer_id': 1}
+INFO: Item name scraped ... Acer Swift 3 SF314-42 14-inch Laptop (AMD Ryzen 5 4500U Hexa-core processor/8GB/512GB SSD/Window 10, Home, 64Bit/AMD Radeon Graphics), Silver
+INFO: Image URL scraped ... https://m.media-amazon.com/images/I/71uiWfC6O7L._AC_UY218_.jpg
+INFO: Item url scraped ... https://www.amazon.in/gp/slredirect/picassoRedirect.html/ref=pa_sp_btf_computers_sr_pg1_1?ie=UTF8&adId=A10075032GY6XSNZQH03J&url=%2FAcer-SF314-42-Hexa-core-processor-Graphics%2Fdp%2FB0894NHJH4%2Fref%3Dsr_1_26_sspa%3Fdchild%3D1%26keywords%3Dacer%2Blaptops%26qid%3D1601109859%26s%3Dcomputers%26sr%3D1-26-spons%26psc%3D1&qualifier=1601109858&id=1352566140498730&widgetName=sp_btf
+INFO: Item price scraped ... 61,590
+DEBUG: Scraped from <200 https://www.amazon.in/s?s=relevance-blender&ref=nb_sb_noss&rh=n%3A1375424031&k=acer+laptops>
+{'item_image': 'https://m.media-amazon.com/images/I/71uiWfC6O7L._AC_UY218_.jpg',
+ 'item_name': 'Acer Swift 3 SF314-42 14-inch Laptop (AMD Ryzen 5 4500U '
+              'Hexa-core processor/8GB/512GB SSD/Window 10, Home, 64Bit/AMD '
+              'Radeon Graphics), Silver',
+ 'item_price': '61,590',
+ 'item_url': 'https://www.amazon.in/gp/slredirect/picassoRedirect.html/ref=pa_sp_btf_computers_sr_pg1_1?ie=UTF8&adId=A10075032GY6XSNZQH03J&url=%2FAcer-SF314-42-Hexa-core-processor-Graphics%2Fdp%2FB0894NHJH4%2Fref%3Dsr_1_26_sspa%3Fdchild%3D1%26keywords%3Dacer%2Blaptops%26qid%3D1601109859%26s%3Dcomputers%26sr%3D1-26-spons%26psc%3D1&qualifier=1601109858&id=1352566140498730&widgetName=sp_btf',
+ 'retailer_id': 1}
+INFO: Closing spider (finished)
+INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 486,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 128404,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 2.106255,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 9, 26, 8, 44, 21, 351786),
+ 'item_scraped_count': 26,
+ 'log_count/DEBUG': 27,
+ 'log_count/INFO': 115,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 9, 26, 8, 44, 19, 245531)}
+INFO: Spider closed (finished)
+INFO: Search id 55
+INFO: 127.0.0.1 - - [26/Sep/2020 14:14:21] "[37mGET /search/Acer%20Laptops HTTP/1.1[0m" 200 -
+INFO: 127.0.0.1 - - [26/Sep/2020 14:14:21] "[37mGET /static/style.css HTTP/1.1[0m" 200 -
+INFO: 127.0.0.1 - - [26/Sep/2020 14:14:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

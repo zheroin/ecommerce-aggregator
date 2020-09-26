@@ -54,6 +54,8 @@ class Retailer(Base):
 	name = db.Column(db.String, unique=True, nullable=False)
 	home_url = db.Column(db.String, unique=True, nullable=False)
 
+	items = db.relationship('Items', backref="retailer", lazy="dynamic")
+
 	def __repr__(self):
 		return f"Retailer <{self.name}>"
 
@@ -83,6 +85,10 @@ class Items(Base):
 	item_url = db.Column(db.String, nullable= False)
 	item_price = db.Column(db.Integer, nullable= False)
 	item_image = db.Column(db.String)
+
+	@classmethod
+	def create_item(cls, search_id, retailer_id, item_name, item_url, item_price, item_image):
+		return cls(search_id=search_id, retailer_id=retailer_id, item_name=item_name, item_url=item_url, item_price=item_price, item_image=item_image)
 
 	def __repr__(self):
 		return f'Item {self.item_name} - url - {self.item_url}'
