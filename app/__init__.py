@@ -6,7 +6,6 @@ from flask_login import LoginManager
 from flask_mail import Mail
 from flask_moment import Moment
 from flask_apscheduler import APScheduler
-from app.tasks import clear_database
 
 
 db = SQLAlchemy()
@@ -22,9 +21,10 @@ def create_app(config_class = Config):
 	db.init_app(app)
 	with app.app_context():
 		db.create_all()
-	# scheduler.init_app(app)
-	# scheduler.start()
+	scheduler.init_app(app)
+	scheduler.start()
 	# app.apscheduler.add_job(func=clear_database, trigger='interval', args=(app,), seconds=2, id='clear_database')
+	# app.apscheduler.add_job(func=check_prices, trigger='interval', args=(app,), seconds=2, id='check_prices')
 	bcrypt.init_app(app)
 	login.init_app(app)
 	mail.init_app(app)

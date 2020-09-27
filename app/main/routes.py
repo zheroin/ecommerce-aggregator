@@ -1,6 +1,6 @@
 from flask import render_template, Blueprint, flash, redirect, url_for
 from app.posts.forms import SearchForm
-from app import db
+from app import db, scheduler
 
 main = Blueprint('main',__name__)
 

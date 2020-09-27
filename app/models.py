@@ -22,7 +22,7 @@ class User(Base,UserMixin):
 	first = db.Column(db.String, nullable = False)
 	last = db.Column(db.String, nullable = False)
 
-	watch_list_items = db.relationship('Watchlist', backref='user', lazy='dynamic')
+	watch_list_items = db.relationship('TrackedItems', backref='user', lazy='dynamic')
 
 	def to_dict(self):
 		data = {
@@ -71,7 +71,6 @@ db.Column('retailer_id', db.Integer, db.ForeignKey('retailer.id'), primary_key=T
 db.Column('cat_url_key', db.String, nullable=False)
 )
 
-
 item_results = db.Table('item_results',
 db.Column('item_id', db.Integer, db.ForeignKey('items.id'), primary_key=True),
 db.Column('result_id', db.Integer, db.ForeignKey('results.id'), primary_key=True)
@@ -96,29 +95,19 @@ class Items(Base):
 	def __repr__(self):
 		return f'Item {self.item_name} - url - {self.item_url}'
 
-watchlist_items = db.Table('watchlist_items',
-db.Column('item_id',db.Integer, db.ForeignKey('tracked_items.id'), primary_key=True),
-db.Column('watchlist_id', db.Integer, db.ForeignKey('watchlist.id'), primary_key=True)
-)
-
 class TrackedItems(Base):
-	item_url = db.Column(db.String, nullable= False)
-	current_price = db.Column(db.Integer, nullable= False)
-	last_scraped_date = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
-
-	def __repr__(self):
-		return f"URL {self.item_url} - Current Price {self.current_price} - Last extracted data {self.last_scraped_date}"
-
-class Watchlist(Base):
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable= False)
+	item_url = db.Column(db.String, nullable = False)
+	item_name = db.Column(db.String, nullable = False)
+	current_price = db.Column(db.Integer, nullable= False)
 	desired_price = db.Column(db.Integer, nullable = False)
 	notification_sent = db.Column(db.Boolean, default= False)
 	notification_date = db.Column(db.DateTime)
-
-	items = db.relationship('TrackedItems', secondary=watchlist_items, lazy='subquery', backref = db.backref('watchlists', lazy=True))
+	last_extracted_timestamp = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
 	def __repr__(self):
-		return f'Item ID - {self.item_id}, User ID {self.user}'
+		return f"<URL {self.item_url} - Name - {self.item_name} - Current Price {self.current_price} - Last extracted data {self.last_extracted_timestamp}>"
+
 
 
 

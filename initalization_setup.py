@@ -1,5 +1,5 @@
 from run import app
-from app.models import User, Retailer, Categories, Results, Items, TrackedItems, Watchlist
+from app.models import User, Retailer, Categories, Results, Items, TrackedItems
 from app import db
 
 with app.app_context():

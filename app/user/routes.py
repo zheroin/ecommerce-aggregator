@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint, redirect, url_for, flash, request, session, current_app
-from app.models import User, Watchlist, Items
+from app.models import User, TrackedItems, Items
 from app import db, bcrypt, mail
 from app.user.forms import RegisterForm, LoginForm, UpdateForm, RequestResetForm, PasswordResetForm
 from app.user.utils import send_reset_email

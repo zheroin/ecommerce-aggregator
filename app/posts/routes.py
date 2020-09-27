@@ -1,8 +1,9 @@
 from flask import render_template, Blueprint, flash, session, request, current_app
 from app import db
-from app.models import Items, Watchlist
+from app.models import Items, TrackedItems
 from app.posts.utils import get_search_results
-import random
+from app.data.individual_price_scraper import amazon_price
+import random, re
 
 post = Blueprint('post',__name__)
 
@@ -21,19 +22,26 @@ def search(category_name,search_string):
 # @post.route('/add_to_watchlist',methods=['POST'])
 # def watch():
 # 	item_id, user_id, desired_price = [request.json[k] for k in ('item_id', 'user_id' , 'desired_price')]
+# 	desired_price = int(float(re.sub(r'[^0-9\.]', '', desired_price)))
 # 	print(f"User ID {user_id}")
 # 	print(f"Session User ID {session['user_id']}")
 # 	try:
 # 		if int(user_id) != int(session['user_id']):
 # 			raise AttributeError("User ID does not match")
-# 		item = Items.query.filter(Items.id == item_id).first()
-# 		wc = Watchlist.query.filter_by(item_id = item.id, user_id = user_id).first()
-# 		if wc:
-# 			wc.desired_price = desired_price
+# 		# Add item to tracked items table and scrape the current price.
+# 		item_url = Items.query.filter_by(id=item_id).first().item_url
+# 		title, price = amazon_price(item_url)
+# 		tracked_item = TrackedItems.query.filter(TrackedItems.item_url == item_url).first()
+# 		if tracked_item:
+# 			if tracked_item.current_price != price:
+# 			# Price has changed so update the record with new price
+# 				tracked_item.current_price = price
+# 				tracked_item.desired_price = desired_price
 # 		else:
-# 			watch_item = Watchlist(item_id = item.id, user_id = user_id, desired_price = desired_price)
-# 			db.session.add(watch_item)
+# 			tracked_item = TrackedItems(user_id = user_id, item_url = item_url, item_name = title, current_price = price, desired_price = desired_price)
+# 			db.session.add(tracked_item)
 # 		db.session.commit()
+# 		print("Item added to watchlist")
 # 		return {"message": "successfully added"}, 201
 # 	except Exception as e:
 # 		current_app.logger.info("Exception - {}".format(e))
@@ -41,7 +49,24 @@ def search(category_name,search_string):
 
 @post.route('/add_to_watchlist',methods=['POST'])
 def watch():
+	# Desired price has to be formatted into an integer
 	# item_id, user_id, desired_price = [request.json[k] for k in ('item_id', 'user_id' , 'desired_price')]
-	item_id = 1
+	item_id = 22
+	user_id = 1
+	desired_price = 80000
+
 	# Add item to tracked items table and scrape the current price.
-	get_item_price()
+	item_url = Items.query.filter_by(id=item_id).first().item_url
+	title, price = amazon_price(item_url)
+	tracked_item = TrackedItems.query.filter(TrackedItems.item_url == item_url).first()
+	if tracked_item:
+		if tracked_item.current_price != price:
+			# Price has changed so update the record with new price
+			tracked_item.current_price = price
+			tracked_item.desired_price = desired_price
+	else:
+		tracked_item = TrackedItems(user_id = user_id, item_url = item_url, item_name = title, current_price = price, desired_price = desired_price)
+		db.session.add(tracked_item)
+	db.session.commit()
+	print("Item added to watchlist")
+	return {"message":"Added to watchlist"}

@@ -8,3 +8,6 @@
 #### Scripts for purging the database [last]
 #### Flask-GUNICORN - Run the code on Linux VM Ware system
 
+## Issues
+##### TrackedItems/Watchlist can be added multiple times. Create a new model relationship between tracked items and normal items.
+

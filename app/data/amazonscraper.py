@@ -27,6 +27,8 @@ class AmazonscraperSpider(scrapy.Spider):
         self._amazon_params = AmazonscraperSpider.amazon_params
         self.retailer_id = retailer_id
         category_key = None
+        # if category_name == 'mobiles':
+        #     category_key = {"rh" : "n:1389401031"}
         if category_name == 'laptops':
             category_key = {"rh":"n:1375424031"}
             self._amazon_params.update(category_key)
