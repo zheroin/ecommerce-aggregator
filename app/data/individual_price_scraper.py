@@ -11,5 +11,4 @@ def amazon_price(url):
 	title = soup.select_one('#productTitle').get_text().strip()
 	price = soup.select_one('#priceblock_ourprice').get_text()
 	price = int(float(re.sub(r'[^0-9\.]', '', price)))
-	print(title,price)
 	return title,price

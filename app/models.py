@@ -56,28 +56,25 @@ class Retailer(Base):
 
 	items = db.relationship('Items', backref="retailer", lazy="dynamic")
 
+	@classmethod
+	def get_retailer_ids(cls):
+		return dict(cls.query.with_entities(cls.name, cls.id).all())
+
 	def __repr__(self):
 		return f"Retailer <{self.name}>"
-
-class Categories(Base):
-	name = db.Column(db.String, unique=True, nullable=False)
-
-	def __repr__(self):
-		return f"Category name {self.name}"
-
-shop_category = db.Table('shop_category',
-db.Column('category_id', db.Integer, db.ForeignKey('categories.id'), primary_key=True),
-db.Column('retailer_id', db.Integer, db.ForeignKey('retailer.id'), primary_key=True),
-db.Column('cat_url_key', db.String, nullable=False)
-)
 
 item_results = db.Table('item_results',
 db.Column('item_id', db.Integer, db.ForeignKey('items.id'), primary_key=True),
 db.Column('result_id', db.Integer, db.ForeignKey('results.id'), primary_key=True)
 )
 
+# Categories available:
+# laptops, mobiles
+# fashion
+
 class Results(Base):
 	search_string = db.Column(db.String, nullable=False)
+	category = db.Column(db.String)
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 	items = db.relationship('Items', secondary=item_results, lazy='subquery', backref=db.backref('results', lazy=True))
@@ -87,20 +84,28 @@ class Results(Base):
 
 class Items(Base):
 	retailer_id = db.Column(db.Integer, db.ForeignKey('retailer.id'))
+	category = db.Column(db.String)
 	item_name = db.Column(db.String, nullable = False)
 	item_url = db.Column(db.String, unique=True, nullable= False)
 	item_price = db.Column(db.Integer, nullable= False)
 	item_image = db.Column(db.String)
+	search_string1 = db.Column(db.String)
+	search_string2 = db.Column(db.String)
+	search_string3 = db.Column(db.String)
+	search_string4 = db.Column(db.String)
+	search_string5 = db.Column(db.String)
+	tracked = db.relationship('TrackedItems', backref='search_item', lazy='dynamic')
 
 	def __repr__(self):
 		return f'Item {self.item_name} - url - {self.item_url}'
 
 class TrackedItems(Base):
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable= False)
+	search_item_id = db.Column(db.Integer, db.ForeignKey('items.id'), nullable= False)
 	item_url = db.Column(db.String, nullable = False)
 	item_name = db.Column(db.String, nullable = False)
 	current_price = db.Column(db.Integer, nullable= False)
-	desired_price = db.Column(db.Integer, nullable = False)
+	desired_price = db.Column(db.Integer)
 	notification_sent = db.Column(db.Boolean, default= False)
 	notification_date = db.Column(db.DateTime)
 	last_extracted_timestamp = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())

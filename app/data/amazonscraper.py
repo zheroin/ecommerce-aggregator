@@ -1,38 +1,36 @@
 # -*- coding: utf-8 -*-
-import scrapy
+import scrapy, logging
 from scrapy.utils.log import configure_logging
-import urllib
-import datetime, logging
-from urllib.parse import urlencode, quote_plus
-from .Items import MyItem
-from app.models import Categories, shop_category, Retailer
-from app import db
+from urllib.parse import urlencode
+try:
+    from app.data.Items import MyItem
+except (ModuleNotFoundError, ImportError) as e:
+    # This is for the spidertester program
+    from Items import MyItem
 from flask import current_app
 
 class AmazonscraperSpider(scrapy.Spider):
-    ## Uncomment incase there are any issues.
-    # configure_logging(install_root_handler=False)
-    # logging.basicConfig(
-    #     filename='log.txt',
-    #     format='%(levelname)s: %(message)s',
-    #     level=logging.INFO
-    # )
     name = 'amazonscraper'
     AMAZON_SEARCH = 'https://www.amazon.in/s?'
-    amazon_params = {'s':'relevance-blender', 'ref':'nb_sb_noss'}
 
-    def __init__(self, retailer_id=1, search_string=None, category_name=None, *args, **kwargs):
-        super(AmazonscraperSpider, self).__init__(*args, **kwargs)
+    # Default query string parameters
+    params = {'s':'relevance-blender', 'ref':'nb_sb_noss'}
+
+    def __init__(self, retailer_id, search_string=None, category_name=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.search_string = search_string
-        self._amazon_params = AmazonscraperSpider.amazon_params
+        self._amazon_params = AmazonscraperSpider.params
+        self._amazon_params['k'] = self.search_string.strip()
         self.retailer_id = retailer_id
         category_key = None
-        # if category_name == 'mobiles':
-        #     category_key = {"rh" : "n:1389401031"}
-        if category_name == 'laptops':
-            category_key = {"rh":"n:1375424031"}
+        if category_name == 'mobiles':
+            category_key = {"rh" : "n:1805560031"}
             self._amazon_params.update(category_key)
-        self._amazon_params['k'] = self.search_string.strip()
+        elif category_name == 'laptops':
+            category_key = {"rh": "n:1375424031"}
+            self._amazon_params.update(category_key)
+        else:
+            pass
         self._amazon_params = urlencode(self._amazon_params)
         amazon_url = f"{self.AMAZON_SEARCH}{self._amazon_params}"
         self.url = amazon_url

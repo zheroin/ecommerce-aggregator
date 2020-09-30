@@ -11,13 +11,13 @@ class Config:
 	MAIL_USE_TLS = True
 	MAIL_USERNAME = os.environ.get('EMAIL_USER')
 	MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
-	JOBS = [
-        {
-            'id': 'job1',
-            'func': 'app.tasks:check_prices',
-            'args': (),
-            'trigger': 'interval',
-            'seconds': 2
-        }
-    ]
+	# JOBS = [
+    #     {
+    #         'id': 'job1',
+    #         'func': 'app.tasks:check_prices',
+    #         'args': (),
+    #         'trigger': 'interval',
+    #         'seconds': 2
+    #     }
+    # ]
 

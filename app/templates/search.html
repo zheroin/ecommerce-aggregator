@@ -97,8 +97,8 @@
 
 		const addToWatchlist = (result_id, current_price) =>{
 			const currentPrice = current_price.replace(',','')
-			itemId = result_id;	
-			console.log("Setting current price "+currentPrice)		
+			itemId = result_id;
+			console.log("Setting current price "+currentPrice)
 			inputDesiredValue.setAttribute("value", currentPrice)
 			console.log(inputDesiredValue)
 			$('#watchModal').modal('show');

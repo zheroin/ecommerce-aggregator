@@ -28,6 +28,7 @@ def login():
 		return redirect(url_for('user.login'))
 	return render_template('login.html', form= form)
 
+
 @user.route('/register.html', methods = ['POST','GET'])
 def register():
 	if current_user.is_authenticated:
@@ -47,9 +48,11 @@ def register():
 
 @user.route('/logout')
 def logout():
+    if 'cart' in session:
+        session.pop('cart', None)
+    session.pop('user_id', None)
     logout_user()
     return redirect(url_for('main.home'))
-
 
 
 @user.route('/account', methods = ['POST','GET'])
@@ -69,10 +72,10 @@ def account():
 		flash('Your account has been updated!')
 		return redirect(url_for('users.account'))
 	elif request.method == 'GET':
-		form.first.data = current_user.first 
-		form.last.data = current_user.last 
-		form.email.data = current_user.email 
-		form.username.data = current_user.username 
+		form.first.data = current_user.first
+		form.last.data = current_user.last
+		form.email.data = current_user.email
+		form.username.data = current_user.username
 	return render_template('account.html',title = f'{current_user.username} Account', form = form, item_list = items_list, current_user = current_user)
 
 
