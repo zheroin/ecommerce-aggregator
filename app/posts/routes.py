@@ -17,7 +17,7 @@ def search(category_name,search_string):
 	current_app.logger.info(f"Search id {result.id}")
 	all_results = result.items
 	random.shuffle(all_results)
-	return render_template('search.html',results = all_results,search_str=search_string, search_id = result.id)
+	return render_template('search.html',results = all_results,category=category_name, search_str=search_string, search_id = result.id)
 
 @post.route('/compare_cart', methods=['POST', 'DELETE'])
 def compare_cart():
