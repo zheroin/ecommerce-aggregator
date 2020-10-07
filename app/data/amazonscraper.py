@@ -14,7 +14,7 @@ class AmazonscraperSpider(scrapy.Spider):
     AMAZON_SEARCH = 'https://www.amazon.in/s?'
 
     # Default query string parameters
-    params = {'s':'relevance-blender', 'ref':'nb_sb_noss'}
+    params = {'ref':'nb_sb_noss'}
 
     def __init__(self, retailer_id, search_string=None, category_name=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -22,12 +22,19 @@ class AmazonscraperSpider(scrapy.Spider):
         self._amazon_params = AmazonscraperSpider.params
         self._amazon_params['k'] = self.search_string.strip()
         self.retailer_id = retailer_id
+        self.category_name = category_name
         category_key = None
         if category_name == 'mobiles':
             category_key = {"rh" : "n:1805560031"}
             self._amazon_params.update(category_key)
         elif category_name == 'laptops':
             category_key = {"rh": "n:1375424031"}
+            self._amazon_params.update(category_key)
+        elif category_name == 'mensfashion':
+            category_key = {"rh": "n:1968024031"}
+            self._amazon_params.update(category_key)
+        elif category_name == 'womensfashion':
+            category_key = {"rh": "n:1968024031"}
             self._amazon_params.update(category_key)
         else:
             pass
@@ -50,16 +57,31 @@ class AmazonscraperSpider(scrapy.Spider):
     def parse(self, response):
         print("Getting amazon data...")
         print("Response URL is {}".format(response.url))
-        all_results = response.xpath('//div[@data-component-type="s-search-result"]')
-        logging.info("All results found. Looping through the results .... " if all_results else "No results found. Exiting")
-        for res in all_results:
-            item_details_div = res.xpath('(.//div[@class="a-section a-spacing-medium"])[1]')
-            item_name = item_details_div.xpath('.//descendant::h2/a/span/text()').get()
-            logging.info(f"Item name scraped ... {item_name}")
-            item_image = item_details_div.xpath('.//descendant::img/@src').get()
-            logging.info(f"Image URL scraped ... {item_image}")
-            item_link = response.urljoin(item_details_div.xpath('.//descendant::h2/a/@href').get())
-            logging.info(f"Item url scraped ... {item_link}")
-            item_price = item_details_div.xpath('.//descendant::span[@class="a-price-whole"]/text()').get()
-            logging.info(f"Item price scraped ... {item_price}")
-            yield MyItem(retailer_id=self.retailer_id, item_name=item_name, item_image=item_image, item_url=item_link, item_price=item_price if item_price else 0)
+        if self.category_name in ('laptops','mobiles'):
+            all_results = response.xpath('//div[@data-component-type="s-search-result"]')
+            logging.info("All results found. Looping through the results .... " if all_results else "No results found. Exiting")
+            for res in all_results:
+                item_details_div = res.xpath('(.//div[@class="a-section a-spacing-medium"])[1]')
+                item_name = item_details_div.xpath('.//descendant::h2/a/span/text()').get()
+                logging.info(f"Item name scraped ... {item_name}")
+                item_image = item_details_div.xpath('.//descendant::img/@src').get()
+                logging.info(f"Image scraped ... {item_image}")
+                item_link = response.urljoin(item_details_div.xpath('.//descendant::h2/a/@href').get())
+                logging.info(f"Item url scraped ... {item_link}")
+                item_price = item_details_div.xpath('.//descendant::span[@class="a-price-whole"]/text()').get()
+                logging.info(f"Item price scraped ... {item_price}")
+                yield MyItem(retailer_id=self.retailer_id, item_name=item_name, item_image=item_image, item_url=item_link, item_price=item_price if item_price else 0)
+        elif self.category_name in ('mensfashion','womensfashion'):
+            all_results = response.xpath('//div[@class="a-section a-spacing-medium a-text-center"]')
+            logging.info("All results found. Looping through the results .... " if all_results else "No results found. Exiting")
+            for res in all_results:
+                item_image = res.xpath('.//descendant::img/@src').get()
+                logging.info(f"Image scraped ... {item_image}")
+                item_link = res.xpath('.//descendant::h2/a/@href').get()
+                logging.info(f"URL scraped ... {item_link}")
+                item_name = res.xpath('.//descendant::h2/a/span/text()').get()
+                logging.info(f"Name scraped ... {item_name}")
+                item_price = res.xpath('.//descendant::span[@class="a-price-whole"]/text()').get()
+                logging.info(f"Price scraped ... {item_price}")
+                yield MyItem(retailer_id=self.retailer_id, item_name=item_name, item_image=item_image, item_url=item_link, item_price=item_price if item_price else 0)
+

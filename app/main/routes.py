@@ -12,8 +12,7 @@ def home():
 	form = SearchForm()
 	if form.validate_on_submit():
 		search_str = form.search_string.data
-		# category_name = "mobiles" #laptops
-		category_name = "laptops" #laptops
+		category_name = form.category_name.data
 		return redirect(url_for('post.search',search_string=search_str, category_name=category_name))
 	return render_template('home.html',form=form, title="Aftab's Shopping Website")
 

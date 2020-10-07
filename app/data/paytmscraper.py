@@ -22,9 +22,13 @@ class PaytmscraperSpider(scrapy.Spider):
         self._params["q"] = f"{search_string.strip()}"
         search_url = self.search_url
         if category_name == 'mobiles':
-            self._params["category"] = f"6224"
+            self._params["category"] = "6224"
         elif category_name == 'laptops':
-            self._params["category"] = f"6453"
+            self._params["category"] = "6453"
+        elif category_name == 'mensfashion':
+            self._params["category"] = "5037"
+        elif category_name == 'womensfashion':
+            self._params["category"] = "5170"
         self._params = urlencode(self._params)
         self.url = f"{search_url}{self._params}"
 

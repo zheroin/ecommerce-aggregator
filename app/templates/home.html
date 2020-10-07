@@ -1,24 +1,116 @@
 {% extends "base.html" %}
+{% set active_page = "index" %}
 {% block home_page %}
-	<div class="container-fluid" id="showcase">
-		<h1>
-		Search for Items
-		</h1>
-		<div class="container search-box">
-			<form action="" method="POST" novalidate>
-				{{ form.hidden_tag() }}
-				<div class="input-group">
-					{{ form.search_string(class="form-control") }}
-					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit">
-						<i class="fa fa-search"></i>						
-						</button>
-					</div>
-				</div>
-			</form>	
-		</div>
+<section class="jumbotron text-center">
+	<div class="container search-box">
+	   <h3>Choose Category and Search for an Item</h3>
+	   <form action="" method="POST">
+		  {{ form.hidden_tag() }}
+		  <div class="input-group">
+			 {{ form.search_string(class_="form-control", required=True) }}
+			 {{ form.category_name(class_="form-control", required=True) }}
+			 <div class="input-group-btn">
+				<button class="btn btn-default" type="submit">
+				<i class="fa fa-search"></i>
+				</button>
+			 </div>
+		  </div>
+	   </form>
 	</div>
-		<div class="container">
-			<h3 class="lead">Search for any items and we shall provide you with the results of multiple e commerce websites.</h3>
-		</div>
-	{% endblock %}
+ </section>
+ <section class="container product">
+	<div class="p-heading">
+	   <h3>Trending and Popular</h3>
+	   <h3>Men's Fashion</h3>
+	</div>
+	<div class="category-product-container">
+	   <!--box-1------------>
+	   <div class="p-box">
+		  <img alt="1" src="https://st.depositphotos.com/1017986/2626/i/450/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg" />
+		  <!--details--------->
+		  <p>Black Genuine Leather Bags.</p>
+		  <!--price--->
+		  <a class="price" href="#">$23.3</a>
+		  <!--buy-btn-->
+		  <a class="buy-btn" href="#">Add To Cart</a>
+	   </div>
+	   <!--box-2------------>
+	   <div class="p-box">
+		  <img alt="2" src="https://st.depositphotos.com/1017986/2626/i/450/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg" />
+		  <!--details--------->
+		  <p>Black Genuine Leather Bags.</p>
+		  <!--price--->
+		  <a class="price" href="#">$30.3</a>
+		  <!--buy-btn-->
+		  <a class="buy-btn" href="#">Add To Cart</a>
+	   </div>
+	   <!--box-3------------>
+	   <div class="p-box">
+		  <img alt="3" src="https://st.depositphotos.com/1017986/2626/i/450/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg" />
+		  <!--details--------->
+		  <p>Black Genuine Leather Bags.</p>
+		  <!--price--->
+		  <a class="price" href="#">$13.3</a>
+		  <!--buy-btn-->
+		  <a class="buy-btn" href="#">Add To Cart</a>
+	   </div>
+	   <!--box-4------------>
+	   <div class="p-box">
+		  <img alt="4" src="https://st.depositphotos.com/1017986/2626/i/450/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg" />
+		  <!--details--------->
+		  <p>Black Genuine Leather Bags.</p>
+		  <!--price--->
+		  <a class="price" href="#">$33.3</a>
+		  <!--buy-btn-->
+		  <a class="buy-btn" href="#">Add To Cart</a>
+	   </div>
+	   <!--box-5------------>
+	   <div class="p-box">
+		  <img alt="5" src="https://st.depositphotos.com/1017986/2626/i/450/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg" />
+		  <!--details--------->
+		  <p>Black Genuine Leather Bags.</p>
+		  <!--price--->
+		  <a class="price" href="#">$11.3</a>
+		  <!--buy-btn-->
+		  <a class="buy-btn" href="#">Add To Cart</a>
+	   </div>
+	   <!--box-6------------>
+	   <div class="p-box">
+		  <img alt="6" src="images/b6.png" />
+		  <!--details--------->
+		  <p>Black Genuine Leather Bags.</p>
+		  <!--price--->
+		  <a class="price" href="#">$43.3</a>
+		  <!--buy-btn-->
+		  <a class="buy-btn" href="#">Add To Cart</a>
+	   </div>
+	   <div class="p-box">
+		<img alt="6" src="https://st.depositphotos.com/1017986/2626/i/450/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg" />
+		<!--details--------->
+		<p>Black Genuine Leather Bags.</p>
+		<!--price--->
+		<a class="price" href="#">$43.3</a>
+		<!--buy-btn-->
+		<a class="buy-btn" href="#">Add To Cart</a>
+	 </div>
+	 <div class="p-box">
+		<img alt="6" src="https://st.depositphotos.com/1017986/2626/i/450/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg" />
+		<!--details--------->
+		<p>Black Genuine Leather Bags.</p>
+		<!--price--->
+		<a class="price" href="#">$43.3</a>
+		<!--buy-btn-->
+		<a class="buy-btn" href="#">Add To Cart</a>
+	 </div>
+	 <div class="p-box">
+		<img alt="6" src="https://st.depositphotos.com/1017986/2626/i/450/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg" />
+		<!--details--------->
+		<p>Black Genuine Leather Bags.</p>
+		<!--price--->
+		<a class="price" href="#">$43.3</a>
+		<!--buy-btn-->
+		<a class="buy-btn" href="#">Add To Cart</a>
+	 </div>
+	</div>
+ </section>
+{% endblock %}

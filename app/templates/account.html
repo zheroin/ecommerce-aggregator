@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% set active_page = "profile" %}
 {% block home_page %}
 <div class="container">
 		<section id="main">
@@ -31,9 +32,9 @@
 						{% else %}
 							{{ field(class_="accountFieldUpdate") }}
 						{% endif %}
-					{% endfor %}	
+					{% endfor %}
 				</form>
 			</div>
 		</aside>
 	</div>
-{% endblock %}	
+{% endblock %}

@@ -92,7 +92,10 @@ def main(result):
             elif 'hp' in search_string.lower():
                 # Scrape hp online store
                 pass
-        elif category_name == 'fashion':
+        elif category_name == 'mensfashion':
+            pass
+        elif category_name == "womensfashion":
+            pass
             # scrape myntra, jabong, shein
         for eventual in all_eventuals:
             eventual.wait(timeout=15)

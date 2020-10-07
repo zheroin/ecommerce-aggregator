@@ -1,6 +1,12 @@
 {% extends "base.html" %}
+{% set active_page = "" %}
 {% block messages %}
-	<h2>Search Results for {{ search_str }}</h2>
+<div class="alert alert-light" role="alert">
+	Category -
+	<p>
+		Search Results for "{{ search_str }}"
+	</p>
+  </div>
 {% endblock %}
 {% block home_page %}
 	<div class="result-container">
@@ -13,9 +19,11 @@
 				</div>
 				<!-- Product description with Link -->
 				<div class="product-description">
-					<p>{{ result.retailer.name }}</p>
-					<p target="_blank" href="{{ result.item_url }}" title="{{result.item_name}}">{{ result.item_name.split(" (")[0]}}</p>
-					<p class="item-price">Price:- {{ result.item_price }}</p>
+					<a target="_blank" href="{{ result.retailer.home_url }}" >
+						<p style="text-transform: capitalize; font-weight: 500;">{{ result.retailer.name }}</p>
+					</a>
+					<a target="_blank" href="{{ result.item_url }}" title="{{result.item_name}}">{{ result.item_name.split(" (")[0]}}</a>
+					<p class="item-price">&#x20B9; {{ result.item_price }}</p>
 					{% if current_user.is_authenticated %}
 						{% if result.watchlist_rec.filter_by(user=current_user).first() %}
 						<p id="item{{result.id}}">In watchlist</p>
@@ -38,7 +46,7 @@
 					<h4 id="itemHeader"></h4>
 				</div>
 				<div class="modal-body">
-					<h5>Item Details</h5>
+					<h5>Product Details</h5>
 					<article>
 						<p id="itemName"></p>
 						<p id="itemPrice"></p>
