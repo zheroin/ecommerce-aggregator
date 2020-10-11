@@ -18,7 +18,7 @@ def check_prices():
 	app = scheduler.app
 	app.logger.info("Starting check prices task.........")
 	with app.app_context():
-		all_items = TrackedItems.query.filter(TrackedItems.current_price > TrackedItems.desired_price,\
+		all_items = TrackedItems.query.filter(TrackedItems.current_price <= TrackedItems.desired_price,\
 		TrackedItems.notification_sent != True).all()
 		for item in all_items:
 			user = item.user
