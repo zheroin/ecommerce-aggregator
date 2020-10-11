@@ -23,8 +23,6 @@ def create_app(config_class = Config):
 		db.create_all()
 	scheduler.init_app(app)
 	scheduler.start()
-	# app.apscheduler.add_job(func=clear_database, trigger='interval', args=(app,), seconds=2, id='clear_database')
-	# app.apscheduler.add_job(func=check_prices, trigger='interval', args=(app,), seconds=2, id='check_prices')
 	bcrypt.init_app(app)
 	login.init_app(app)
 	mail.init_app(app)

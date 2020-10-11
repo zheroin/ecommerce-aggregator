@@ -77,7 +77,7 @@ class AmazonscraperSpider(scrapy.Spider):
             for res in all_results:
                 item_image = res.xpath('.//descendant::img/@src').get()
                 logging.info(f"Image scraped ... {item_image}")
-                item_link = res.xpath('.//descendant::h2/a/@href').get()
+                item_link = response.urljoin(res.xpath('.//descendant::h2/a/@href').get())
                 logging.info(f"URL scraped ... {item_link}")
                 item_name = res.xpath('.//descendant::h2/a/span/text()').get()
                 logging.info(f"Name scraped ... {item_name}")

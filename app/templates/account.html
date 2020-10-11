@@ -1,40 +1,56 @@
 {% extends "base.html" %}
 {% set active_page = "profile" %}
 {% block home_page %}
-<div class="container">
-		<section id="main">
-			{% if item_list %}
-				<h3>Watchlist</h3>
-				<hr>
-				<small>{% for items in item_list %}
-					{{items.item_name}}<br>
-					Current Price {{ items.item_price }}
-					<a href = {{items.item_url}}><span style = "color:red;">Go to URL</span></a><br>
-				{% endfor %}
-			</small>
-			{% else %}
-					<h4>No items selected...</h4>
-			{% endif %}
-		</section>
-		<aside id="sidebar">
-			<div class="account">
-				<h3>About</h3>
-				<hr>
-				<form class="accountForm" action="" method="POST">
-					{{ form.hidden_tag() }}
-					{% for field in form if field.widget.input_type != 'hidden'%}
-						{% if field.name != 'submit' %}
-							{{ field.label(class_="col-form-label")}}
-								{{ field(class_="accountField form-control", disabled=True) }}
-								{% for error in field.errors %}
-								<span style="color: red;"><small>[{{ error }}]</small></span>
-								{% endfor %}
-						{% else %}
-							{{ field(class_="accountFieldUpdate") }}
-						{% endif %}
+<div class="signinup-container">
+	<div class="signinup">
+		<form action="" method="POST">
+	{{ form.hidden_tag() }}
+	<fieldset class="form-group">
+		<legend class="border-bottom mb-4">Profile</legend>
+		<div class="form-group">
+			{{ form.email.label(class="form-control-label") }}
+			{% if form.email.errors %}
+				{{ form.email(class="form-control form-control-sm is-invalid") }}
+				<div class="invalid-feedback">
+					{% for error in form.email.errors %}
+						<span>{{ error }}</span>
 					{% endfor %}
-				</form>
-			</div>
-		</aside>
+				</div>
+			{% else %}
+				{{ form.email(class="form-control form-control-sm", size=50, placeholder="Email Address") }}
+			{% endif %}
+		</div>
+		<div class="form-group">
+			{{ form.first.label(class="form-control-label") }}
+					{% if form.first.errors %}
+						{{ form.first(class="form-control form-control-sm is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.first.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.first(class="form-control form-control-sm", size=50, placeholder="First Name") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					{{ form.last.label(class="form-control-label") }}
+					{% if form.last.errors %}
+						{{ form.last(class="form-control form-control-sm is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.last.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.last(class="form-control form-control-sm", size=50, placeholder="Last Name") }}
+					{% endif %}
+				</div>
+	</fieldset>
+	<div class="form-group">
+		{{ form.submit(class_="btn btn-primary") }}
 	</div>
+</form>
+	</div>
+</div>
 {% endblock %}

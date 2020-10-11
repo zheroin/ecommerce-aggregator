@@ -18,8 +18,9 @@ def login():
 		user = User.query.filter_by(email = form.email.data).first()
 		if user and bcrypt.check_password_hash(user.password, form.password.data):
 			login_user(user, remember = form.remember.data)
-			session['user_id'] = user.id
+			session['user_id'] = user.public_key
 			next_page = request.args.get('next')
+			flash(f'Hi {user.full_name}')
 			if not next_page or url_parse(next_page).netloc != '':
 				return redirect(url_for('main.home'))
 			else:
@@ -38,10 +39,10 @@ def register():
 		print("request POST")
 		if form.validate_on_submit():
 			hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-			user = User(email = form.email.data, first = form.first.data, last = form.last.data, username = form.username.data, password = hashed_password)
+			user = User(email = form.email.data, first = form.first.data, last = form.last.data, hashed_password = hashed_password)
 			db.session.add(user)
 			db.session.commit()
-			flash(f'User {form.username.data} has been registered!')
+			flash(f'User {user.full_name} registered.')
 			return redirect(url_for('user.login'))
 	return render_template('register.html', form= form)
 
@@ -52,6 +53,7 @@ def logout():
         session.pop('cart', None)
     session.pop('user_id', None)
     logout_user()
+    flash(f'User logged out')
     return redirect(url_for('main.home'))
 
 
@@ -59,25 +61,18 @@ def logout():
 @login_required
 def account():
 	form = UpdateForm()
-	watchlist_items = current_user.watch_list_items.all()
-	print(watchlist_items)
-	item_ids = [x.item_id for x in watchlist_items]
-	print(item_ids)
-	items_list = Items.query.filter(Items.id.in_(item_ids))
 	if form.validate_on_submit():
 		current_user.first = form.first.data
 		current_user.email = form.email.data
-		current_user.username = form.username.data
 		current_user.last = form.last.data
+		db.session.commit()
 		flash('Your account has been updated!')
-		return redirect(url_for('users.account'))
+		return redirect(url_for('user.account'))
 	elif request.method == 'GET':
 		form.first.data = current_user.first
-		form.last.data = current_user.last
 		form.email.data = current_user.email
-		form.username.data = current_user.username
-	return render_template('account.html',title = f'{current_user.username} Account', form = form, item_list = items_list, current_user = current_user)
-
+		form.last.data = current_user.last
+	return render_template('account.html',form = form)
 
 @user.route('/reset_password', methods = ['POST','GET'])
 def request_reset():
@@ -97,7 +92,7 @@ def request_reset():
 def reset_token(token):
 	if current_user.is_authenticated:
 		return redirect(url_for('main.home'))
-	user = User.verify_reset_token(token)
+	user = User.verify_user_token(token)
 	if not user:
 		flash('Invalid or Expired token')
 		return redirect(url_for('user.request_reset'))

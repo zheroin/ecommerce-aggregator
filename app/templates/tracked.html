@@ -1,0 +1,141 @@
+{% extends "base.html" %} {% set active_page = "tracked_items" %} {% block
+home_page %}
+{% if not tracked_items and not watchlist_items %}
+<div class="container">
+  <br />
+  <h3>No items available..</h3>
+</div>
+{% else %}
+<br />
+<div class="container">
+  <a type="button" class="btn btn-outline-dark btn-sm" href="#savedlist">
+    Saved List
+  </a>
+  <a type="button" class="btn btn-outline-dark btn-sm" href="#wishlist">
+    Wishlist
+  </a>
+</div>
+<hr />
+{% if tracked_items %}
+<div class="container" id="savedlist">
+  <h3>Saved Products</h3>
+  <button
+    type="button"
+    onclick="clearCompare()"
+    class="btn btn-outline-dark btn-sm clear-btn"
+  >
+    Clear List
+  </button>
+  <br />
+  <div class="result-container-full">
+    {% for result in tracked_items %}
+    <!-- Product -->
+    <div class="product-container-full">
+      <!-- Product Image and details-->
+      <div class="product-image">
+        <a target="_blank" href="{{ result.item_url }}"
+          ><img
+            title="Go to {{result.retailer.name }}"
+            class="image-thumbnail"
+            src="{{ result.item_image }}"
+            alt="{{ result.item_name }}"
+        /></a>
+      </div>
+      <!-- Product description with Link -->
+      <div class="product-description">
+        <a target="_blank" href="{{ result.retailer.home_url }}">
+          <p
+            style="
+              text-transform: capitalize;
+              font-weight: bold;
+              color: #35bcfc;
+            "
+          >
+            {{ result.retailer.name }}
+          </p>
+        </a>
+        <a
+          target="_blank"
+          href="{{ result.item_url }}"
+          title="{{result.item_name}}"
+          >{{ result.item_name }}</a
+        >
+        <p>&#x20B9; {{ result.item_price }}</p>
+        <div class="watchlist-btn">
+          <button
+            onclick="clearProduct(this, item_id = '{{ result.id }}')"
+            type="button"
+            class="btn btn-outline-dark btn-sm compare-btn"
+          >
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<hr />
+{% endif %}
+{% if watchlist_items %}
+<div class="container" id="wishlist">
+  <br />
+  <h3>Watchlist</h3>
+  <div class="result-container-full">
+  {% for result in watchlist_items %}
+  <!-- Product -->
+  <div class="product-container-full">
+    <!-- Product Image and details-->
+    <div class="product-image">
+      <a target="_blank" href="{{ result.item_url }}"
+        ><img
+          class="image-thumbnail"
+          src="{{ result.item_image }}"
+          alt="{{ result.item_name }}"
+      /></a>
+    </div>
+    <!-- Product description with Link -->
+    <div class="product-description">
+      <a
+        target="_blank"
+        href="{{ result.item_url }}"
+        title="{{result.item_name}}"
+        >{{ result.item_name }}</a
+      >
+      <p style="margin-top: auto;">Current
+        <strong><span class="currentPrice">&#x20B9; {{ result.current_price }}</span></strong>
+      <br>
+        Price to beat
+      <strong><span class="desiredPrice">&#x20B9; {{ result.desired_price }}</span></strong>
+      </p>
+      <div class="watchlist-btn">
+        <button
+          type="button"
+          onclick="removeFromWatchlist(elem=this, item_id='{{ result.id }}', user_id = '{{ current_user.public_key }}')"
+          class="btn btn-outline-dark btn-sm"
+        >
+          Remove
+        </button>
+        <input
+          type="number"
+          name="desiredPrice"
+          placeholder="Enter the right price"
+        />
+        <button
+          type="button"
+          onclick="updateWatchlist
+                 (elem=this,
+                 item_id='{{ result.id }}',
+                 user_id = '{{ current_user.public_key }}')"
+          class="btn btn-outline-dark btn-sm"
+        >
+          Update Amount
+        </button>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+{% endif %}
+{% endif %}{% endblock %}

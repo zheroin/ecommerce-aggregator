@@ -3,17 +3,17 @@ from app.models import User, Retailer,  Results, Items, TrackedItems
 from app import db
 
 with app.app_context():
-    # db.create_all()
+    db.create_all()
     ###### db.drop_all()
 
     # ## Add shops to the database
-    # ## Adding Amazon
-    # # amazon = Retailer(name="amazon", home_url='https://www.amazon.in/')
-    # # db.session.add(amazon)
-    # ## Adding flipkart
-    # # flipkart = Retailer(name="flipkart", home_url='https://www.flipkart.com/')
-    # # db.session.add(flipkart)
-    # ## Adding croma
+    # # Adding Amazon
+    # amazon = Retailer(name="amazon", home_url='https://www.amazon.in/')
+    # db.session.add(amazon)
+    # # Adding flipkart
+    # flipkart = Retailer(name="flipkart", home_url='https://www.flipkart.com/')
+    # db.session.add(flipkart)
+    # # Adding croma
     # croma = Retailer(name="croma", home_url="https://www.croma.com")
     # db.session.add(croma)
     # ## Adding ebay
@@ -31,7 +31,7 @@ with app.app_context():
     # ## Adding shein
     # shein = Retailer(name="shein",home_url = "https://www.shein.in/")
     # db.session.add(shein)
-    ## Adding paytm
-    paytm = Retailer(name="paytm", home_url="https://www.paytmmall.com/")
-    db.session.add(paytm)
-    db.session.commit()
+    # # Adding paytm
+    # paytm = Retailer(name="paytm", home_url="https://www.paytmmall.com/")
+    # db.session.add(paytm)
+    # db.session.commit()

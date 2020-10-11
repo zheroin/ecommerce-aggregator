@@ -1,84 +1,160 @@
 {% extends "base.html" %} {% set active_page = "search" %} {% block messages %}
 <div class="alert alert-light" role="alert">
-   <p>Search Results for "{{ search_str }}"</p>
+  <p>Search Results for "{{ search_str }}"</p>
 </div>
 {% endblock %} {% block home_page %} {% if category in ('laptops', 'mobiles') %}
 <div class="result-container-full">
-   {% for result in results %}
-   <!-- Product -->
-   <div class="product-container-full">
-      <!-- Product Image and details-->
-      <div class="product-image">
-         <a target="_blank" href="{{ result.item_url }}"
-            ><img
-            title="Go to {{result.retailer.name }}"
-            class="image-thumbnail"
-            src="{{ result.item_image }}"
-            alt="{{ result.item_name }}"
-            /></a>
+  {% for result in results %}
+  <!-- Product -->
+  <div class="product-container-full"">
+    <!-- Product Image and details-->
+    <div class="product-image">
+      <a target="_blank" href="{{ result.item_url }}"
+        ><img
+          title="Go to {{result.retailer.name }}"
+          class="image-thumbnail"
+          src="{{ result.item_image }}"
+          alt="{{ result.item_name }}"
+      /></a>
+    </div>
+    <!-- Product description with Link -->
+    <div class="product-description">
+      <a target="_blank" href="{{ result.retailer.home_url }}">
+        <p
+          style="text-transform: capitalize; font-weight: bold; color: #35bcfc;"
+        >
+          {{ result.retailer.name }}
+        </p>
+      </a>
+      <a
+        target="_blank"
+        href="{{ result.item_url }}"
+        title="{{result.item_name}}">{{ result.item_name }}</a>
+      <p class="item-price">&#x20B9; {{ result.item_price }}</p>
+      <div class="watchlist-btn">
+        {# Check if item is already in the session for compare list #}
+        {% if 'cart' in session %}
+          {% if result.id|string not in session['cart'] %}
+          <button
+            type="button"
+            onclick="addToCompare(elem=this, item_id='{{ result.id }}')"
+            class="btn btn-outline-dark btn-sm"
+          >
+            Save for Later
+          </button>
+          {% endif %}
+        {% else %}
+          <button
+          type="button"
+          onclick="addToCompare(elem=this, item_id='{{ result.id }}')"
+          class="btn btn-outline-dark btn-sm"
+        >
+          Save for Later
+        </button>
+        {% endif %}
+        {% if current_user.is_authenticated %}  {# Check if item is already
+        in the watch list #}
+        {% if result.id not in current_user.watch_list_items|map(attribute='search_item_id')|list %}
+        <input
+          type="number"
+          name="desiredPrice"
+          placeholder="Enter the right price"
+        />
+        <button
+          type="button"
+          onclick="addToWatchlist
+               (elem=this,
+               item_id='{{ result.id }}',
+               user_id = '{{ current_user.public_key }}',
+               current_price='{{ result.item_price }}')"
+          class="btn btn-outline-dark btn-sm"
+        >
+          Add to Watchlist
+        </button>
+        {% endif %}
+        {% endif %}
       </div>
-      <!-- Product description with Link -->
-      <div class="product-description">
-         <a target="_blank" href="{{ result.retailer.home_url }}">
-            <p style="text-transform: capitalize; font-weight: bold; color: #35BCFC;">
-               {{ result.retailer.name }}
-            </p>
-         </a>
-         <a
-            target="_blank"
-            href="{{ result.item_url }}"
-            title="{{result.item_name}}"
-            >{{ result.item_name }}</a
-            >
-         <p class="item-price">&#x20B9; {{ result.item_price }}</p>
-         {% if current_user.is_authenticated %}
-         {# Check if item is already in the watch list #}
-         <button type="button" class="btn btn-outline-dark btn-sm watchlist-btn">Add to Watchlist?</button>
-         {% endif %}
-         <button type="button" class="btn btn-outline-dark btn-sm compare-btn">Add to Compare</button>
-      </div>
-   </div>
-   {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
 </div>
 {% else %}
 <section class="container product">
-   <div class="p-heading">
-      <h3>Fashion</h3>
-   </div>
-   <div class="category-product-container">
-      {% for result in results %}
-      <div class="p-box">
-         <p class="add-watchlist">Add to Watchlist?</p>
-         <a target="_blank" href="{{ result.item_url }}">
-         <img
-            title="Go to {{result.retailer.name }}"
-            src="{{ result.item_image }}"
-            alt="{{ result.item_name }}"
-            />
-         </a>
-         <!--details--------->
-         <br>
-         <a
-            target="_blank"
-            href="{{ result.item_url }}"
-            title="{{result.item_name}}"
-            >
-            <h6>{{ result.item_name }}</h6>
-         </a
-            >
-         <!--price--->
-         <h4>
-            <a target="_blank" href="{{ result.retailer.home_url }}">
-				<p style="text-transform: capitalize; font-weight: bold; color: #35BCFC;">
-				   {{ result.retailer.name }}
-				</p>
-			 </a>
-            <p>&#x20B9; {{ result.item_price }}</p>
-         </h4>
-         <!--buy-btn-->
-         <a class="buy-btn" href="#">Add To Compare</a>
+  <div class="p-heading">
+    <h3>Fashion</h3>
+  </div>
+  <div class="category-product-container">
+    {% for result in results %}
+    <div class="p-box">
+      {% if current_user.is_authenticated %}
+       {# Check if item is already in the watch list #}
+      <div class="add-watchlist">
+        <input type="number" placeholder="Desired price" />
+        <button
+          type="button"
+          title="Add Product to Watchlist"
+          onclick="addToWatchlist
+            (elem=this,
+            item_id='{{ result.id }}',
+            user_id = '{{ current_user.public_key }}',
+            current_price='{{ result.item_price }}')"
+          class="btn btn-outline-dark btn-sm"
+        >
+          Watchlist
+        </button>
       </div>
-      {% endfor %}
-   </div>
+      {% endif %}
+      <a target="_blank" href="{{ result.item_url }}">
+        <img
+          title="Go to {{result.retailer.name }}"
+          src="{{ result.item_image }}"
+          alt="{{ result.item_name }}"
+        />
+      </a>
+      <!--details--------->
+      <br />
+      <a
+        target="_blank"
+        href="{{ result.item_url }}"
+        title="{{result.item_name}}"
+      >
+        <h6>{{ result.item_name }}</h6>
+      </a>
+      <!--price--->
+      <h4>
+        <a target="_blank" href="{{ result.retailer.home_url }}">
+          <p
+            style="
+              text-transform: capitalize;
+              font-weight: bold;
+              color: #35bcfc;
+            "
+          >
+            {{ result.retailer.name }}
+          </p>
+        </a>
+        <p>&#x20B9; {{ result.item_price }}</p>
+      </h4>
+      <!--buy-btn-->
+      {% if 'cart' in session %}
+        {% if not result.id|string in session['cart'] %}
+          <p
+            class="buy-btn"
+            onclick="addToCompare(elem=this, item_id='{{ result.id }}')"
+          >
+            Save for Later
+          </p>
+        {% endif %}
+      {% else %}
+          <p
+          class="buy-btn"
+          onclick="addToCompare(elem=this, item_id='{{ result.id }}')"
+          >
+            Save for Later
+          </p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
 </section>
 {% endif %} {% endblock %}
