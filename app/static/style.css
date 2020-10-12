@@ -22,7 +22,6 @@ a {
 	text-decoration: none;
 }
 
-
 /* Nav bar config */
 /* Logo config */
 
@@ -32,21 +31,14 @@ a {
 	padding: 0;
 	margin-bottom: 0;
 	margin-top: 0;
-	height: 70px;
+	height: 55px;
 	width: auto;
 }
-/* .logo a{
-	font-family:poppins;
-	font-weight: bold;
-	color: #2f2e41;
-	font-size:2rem;
-	text-shadow: 2px 2px 30px rgba(0,0,0,0.2);
-	letter-spacing: 1px;
-	text-decoration: none;
+
+.logo img{
+	padding: 0;
+	margin: 0;
 }
-.logo font{
-    color:#7A72FF;
-} */
 /* Logo config end... */
 
 header {
