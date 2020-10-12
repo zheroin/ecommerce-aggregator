@@ -44,16 +44,13 @@ def create_app(config_class = Config):
 
 
 	if app.config['LOG_TO_STDOUT']:
-		print("logging 1")
 		stream_handler = logging.StreamHandler()
 		stream_handler.setLevel(logging.INFO)
 		app.logger.addHandler(stream_handler)
 	else:
-		print("logging 2")
 		if not os.path.exists('logs'):
-			print("Making dir")
 			os.mkdir('logs')
-		file_handler = RotatingFileHandler('logs/microblog.log', maxBytes=10240, backupCount=10)
+		file_handler = RotatingFileHandler('logs/shopify.log', maxBytes=10240, backupCount=10)
 		file_handler.setFormatter(logging.Formatter(
 			'%(asctime)s %(levelname)s: %(message)s '
 			'[in %(pathname)s:%(lineno)d]'))
@@ -61,7 +58,7 @@ def create_app(config_class = Config):
 		app.logger.addHandler(file_handler)
 
 		app.logger.setLevel(logging.INFO)
-		app.logger.info('Microblog startup')
+		app.logger.info('Shopify startup')
 
 	with app.app_context():
 		db.create_all()

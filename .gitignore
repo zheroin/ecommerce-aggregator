@@ -1,4 +1,8 @@
 __pycache__
+.vscode
 venv
 notes*
 testing-misc
+logs
+query_scripts*
+initalization_setup*

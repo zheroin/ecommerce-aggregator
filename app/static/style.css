@@ -22,14 +22,20 @@ a {
 	text-decoration: none;
 }
 
+
 /* Nav bar config */
 /* Logo config */
 
 .logo{
 	cursor: pointer;
 	margin-left: 20px;
+	padding: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+	height: 70px;
+	width: auto;
 }
-.logo a{
+/* .logo a{
 	font-family:poppins;
 	font-weight: bold;
 	color: #2f2e41;
@@ -40,7 +46,7 @@ a {
 }
 .logo font{
     color:#7A72FF;
-}
+} */
 /* Logo config end... */
 
 header {

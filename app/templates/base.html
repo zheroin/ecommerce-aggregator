@@ -14,7 +14,10 @@
          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
          crossorigin="anonymous"
          />
-      <title>Online Store</title>
+      <link rel="icon"
+      type="image/png"
+      href="{{url_for('static', filename= 'images/favicon.png')}}">
+      <title>Shopify</title>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
    </head>
    <link
@@ -41,7 +44,7 @@
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                <div class="logo">
-                  <a href="{{ url_for('main.home') }}"><font>LO</font>GO</a>
+                  <a href="{{ url_for('main.home') }}"><img src="{{url_for('static', filename= 'images/logo_transparent.png')}}" width="auto" height="100%" alt="Logo"></a>
                </div>
                <a class="navText nav-link ml-auto {{'active' if active_page == 'index'}} " href="{{ url_for('main.home') }}"
                   >Home</a
