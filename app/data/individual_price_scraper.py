@@ -1,8 +1,6 @@
 import requests, re
 from bs4 import BeautifulSoup as BS
-from dataclasses import dataclass
 
-@dataclass
 class IndividualScraper:
 	mapping = {
 		'amazon':'cmd_amazon_price',
