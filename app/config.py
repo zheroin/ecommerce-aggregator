@@ -2,7 +2,8 @@ import secrets, os
 
 class Config:
 	SECRET_KEY = os.environ.get('FLASK_KEY')
-	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')
+	LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
+	SQLALCHEMY_DATABASE_URI = os.environ.get('POSTGRES_DATABASE_URI')
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
 	MAIL_SERVER = 'smtp.gmail.com'
 	MAIL_PORT = 587
@@ -15,14 +16,14 @@ class Config:
             'func': 'app.tasks:check_prices',
             'args': (),
             'trigger': 'interval',
-            'minutes': 1
+            'hours': 12
         },
 		{
             'id': 'job2',
             'func': 'app.tasks:update_price',
             'args': (),
             'trigger': 'interval',
-            'minutes': 1
+            'hours': 6
         }
     ]
 

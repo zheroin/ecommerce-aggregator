@@ -20,6 +20,7 @@ def check_prices():
 	with app.app_context():
 		all_items = TrackedItems.query.filter(TrackedItems.current_price <= TrackedItems.desired_price,\
 		TrackedItems.notification_sent != True).all()
+		print(f"Check items found {all_items}")
 		for item in all_items:
 			user = item.user
 			msg = Message('Password Reset Request',
@@ -40,6 +41,7 @@ def update_price():
 	with app.app_context():
 		scraper = IndividualScraper()
 		all_items = TrackedItems.query.filter(TrackedItems.notification_sent != True).all()
+		print(f"Update Items found {all_items}")
 		try:
 			for item in all_items:
 				title, price = scraper.get_price(item.item_url)
